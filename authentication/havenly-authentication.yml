@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/havenly-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - password
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization:
+    Bearer <token>.'
+  sources:
+  - openapi/havenly-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+    scopes: 0
+  sources:
+  - openapi/havenly-openapi.yml
