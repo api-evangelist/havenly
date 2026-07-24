@@ -1,0 +1,617 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Board Feedback Questions API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Board Feedback Questions
+paths:
+  /board-feedback-questions:
+    get:
+      operationId: boardFeedbackQuestions
+      summary: Board Feedback Questions (collection)
+      tags:
+      - Board Feedback Questions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 20
+                total: 20
+                collectionTotal: 20
+                _links:
+                  self:
+                    href: http://api.havenly.local/board-feedback-questions?page=1
+                  first:
+                    href: http://api.havenly.local/board-feedback-questions
+                  last:
+                    href: http://api.havenly.local/board-feedback-questions?page=1
+                _embedded:
+                  board_feedback_questions:
+                  - id: 1
+                    title: Low quality items
+                    question: Which items appear to be low quality?
+                    placeholder: 'For example: "Some of these pieces look cheap to me. The rug looks like it won''t last - too thin."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/1
+                  - id: 2
+                    title: Don't love the colors
+                    question: How can we improve the color scheme?
+                    placeholder: 'For example: "This is way too dark and gray. I want neutrals but I want brighter and lighter neutrals like whites."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/2
+                  - id: 3
+                    title: Not my style
+                    question: How can we get closer to your style?
+                    placeholder: 'For example: "This is way too bohemian and eclectic for me. I want it to be modern with a few fun, eclectic accents."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/3
+                  - id: 4
+                    title: Underwhelming
+                    question: What feels underwhelming to you?
+                    placeholder: 'For example: "The sofa and pillows do not excite me. They feels way too safe and plain. I want them to make a statement."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/4
+                  - id: 5
+                    title: Core pieces are missing
+                    question: Which pieces are missing from this design?
+                    placeholder: 'For example: "I mentioned I need curtains. I don''t see those in the design."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/5
+                  - id: 6
+                    title: Out of my price range
+                    question: What's out of your price range?
+                    placeholder: 'For example: "I would never pay that much for a lamp. Please show me less expensive options."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/6
+                  - id: 7
+                    title: The vibe is off
+                    question: How can we improve the vibe?
+                    placeholder: 'For example: "This feels too casual. I want a room that is more tailored and sophisticated."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/7
+                  - id: 8
+                    title: Not practical for my lifestyle
+                    question: How can we better design for your lifestyle?
+                    placeholder: 'For example: "I have a dog and 2 kids. That gets messy! A white sofa is not functional for my lifestyle."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/8
+                  - id: 9
+                    title: Scale is off
+                    question: Which items look out of scale?
+                    placeholder: 'For example: "My room is tiny, so this will not work in my space. There is no way that table will fit in the corner."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/9
+                  - id: 10
+                    title: Don't love the layout
+                    question: What layout is ideal for you?
+                    placeholder: 'For example: "I prefer my bed by the window. I''ve tried this layout and it doesn''t work."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/10
+                  - id: 11
+                    title: Love the colors
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/11
+                  - id: 12
+                    title: Good quality
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/12
+                  - id: 13
+                    title: The vibe is right
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/13
+                  - id: 14
+                    title: Matches my style
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/14
+                  - id: 15
+                    title: Price is on point
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/15
+                  - id: 16
+                    title: Layout looks right
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/16
+                  - id: 17
+                    title: null
+                    question: How else can we improve this concept?
+                    placeholder: null
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/17
+                  - id: 18
+                    title: null
+                    question: How else can we improve this concept to make it perfect?
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/18
+                  - id: 19
+                    title: null
+                    question: How else can we improve your layout?
+                    placeholder: null
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/19
+                  - id: 20
+                    title: null
+                    question: Need any additional product recommendations or design help?
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/20
+                page_count: 1
+                page_size: 25
+                total_items: 20
+                page: 1
+        '401':
+          description: Unauthorized
+      description: Get all board feedback questions
+      security:
+      - bearerAuth: []
+  /board-feedback-questions/{id}:
+    get:
+      operationId: boardFeedbackQuestionById
+      summary: Board Feedback Question by ID
+      tags:
+      - Board Feedback Questions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 5
+                title: Core pieces are missing
+                question: Which pieces are missing from this design?
+                placeholder: 'For example: "I mentioned I need curtains. I don''t see those in the design."'
+                isPositive: false
+                created: null
+                modified: null
+                type: null
+                _embedded:
+                  boardTypes:
+                  - id: 15
+                    name: Final Concept
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-types/15
+                  - id: 3
+                    name: Final Design
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-types/3
+                  - id: 1
+                    name: Concept
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-types/1
+                _links:
+                  self:
+                    href: http://api.havenly.local/board-feedback-questions/5
+        '401':
+          description: Unauthorized
+      description: Get a specific board feedback question by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

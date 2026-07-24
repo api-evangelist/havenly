@@ -1,0 +1,197 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Searched Vendor Variants API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Searched Vendor Variants
+paths:
+  /searched-vendor-variants:
+    post:
+      operationId: getUserSpecificData
+      summary: Get User Specific Data
+      tags:
+      - Searched Vendor Variants
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                vendorVariants:
+                - vendorVariantId: 8104621
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions: []
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104622
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping & White Glove Delivery
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104623
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: false
+                    text: Free Shipping
+                    terms: Offer includes all fine art prints and non-custom art, excluding all custom art prints. Available on standard shipping within the US. This promotion may not be combined with any other offer. Returns can be placed by contacting customer service.
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104624
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104625
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104626
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104627
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                _links:
+                  self:
+                    href: https://api-pr2324.havenly.com/searched-vendor-variants
+        '401':
+          description: Unauthorized
+      description: Given the list of vendor variant IDs, return user specific data regarding those variants.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              vendorVariants:
+              - 8104621
+              - 8104622
+              - 8104623
+              - 8104624
+              - 8104625
+              - 8104626
+              - 8104627
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

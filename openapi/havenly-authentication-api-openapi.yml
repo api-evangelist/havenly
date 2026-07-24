@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Authentication API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Authentication
+paths:
+  /oauth:
+    post:
+      operationId: externalOauthAuthentication
+      summary: External OAuth Authentication
+      tags:
+      - Authentication
+      responses:
+        '400':
+          description: invalid_client
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+                title: invalid_client
+                status: 400
+                detail: Client credentials were not found in the headers or body
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                access_token: 5ca13702fca48ed153984d963a683a96cfcaf405
+                expires_in: 3600
+                token_type: Bearer
+                scope: null
+                refresh_token: 3d31c190d2c875a40049d614c5aee7e98f3e24bc
+        '401':
+          description: Unauthorized
+      description: This route is used to authenticate against the Havenly API as an Airbnb user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              grant_type: external_oauth
+              client_id: postman
+              provider: airbnb
+              access_token: 40xdf4fvdotrpnwv6tkuroaze
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

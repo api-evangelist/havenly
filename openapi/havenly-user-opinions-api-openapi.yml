@@ -1,0 +1,197 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses User Opinions API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: User Opinions
+paths:
+  /user-opinions:
+    post:
+      operationId: createANewOpinion
+      summary: Create a new opinion
+      tags:
+      - User Opinions
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                vendorVariant: 8104621
+                opinion: 0
+                _links:
+                  self:
+                    href: https://api-pr2317.havenly.com/user-opinions
+        '401':
+          description: Unauthorized
+      description: 'Each POST is considered a new opinion. Therefore, we remove all other opinions for that user to create this new one.
+
+
+
+        Opinions:
+
+
+        1 -&gt; Like
+
+        0 -&gt; No Opinion
+
+        -1 -&gt; Dislike'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              vendorVariant: 8104621
+              opinion: 1
+      security:
+      - bearerAuth: []
+  /user-likes-lite:
+    get:
+      operationId: fetchAllCustomerLikes
+      summary: Fetch all customer likes
+      tags:
+      - User Opinions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 1
+                total: 1
+                collectionTotal: 1
+                _links:
+                  self:
+                    href: http://api.havenly.local/user-likes-lite?page=1
+                  first:
+                    href: http://api.havenly.local/user-likes-lite
+                  last:
+                    href: http://api.havenly.local/user-likes-lite?page=1
+                _embedded:
+                  user_like:
+                  - id: 510124
+                    opinion: 1
+                    _embedded:
+                      vendorVariant:
+                        id: 8104621
+                        sku: ''
+                        title: Ski Patrol Experts Only Double Black Diamond 2 - Metal Print - 13"x13", Small
+                        description: Our metal prints are thin, lightweight and durable 1/16" aluminum sheet canvas. The high gloss finish enhances color and produces sharp image details. Each sheet has a 3/4" wooden frame attached to the back to offset from the wall. Prints have a wire or sawtooth hanger, depending on size selected.
+                        color: high gloss finish
+                        dimensions: 13"x13"
+                        material: Metal
+                        feedSource: null
+                        uri: https://static.havenly.com/product/production/php_590ffd806da08.jpg
+                        shipSurcharge: '0.00'
+                        inStock: true
+                        backOrdered: false
+                        assemblyRequired: false
+                        flaggedForReview: true
+                        price: 89
+                        shippingType: null
+                        salePrice: null
+                        saleStartDate: null
+                        saleEndDate: null
+                        wholesalePrice: null
+                        availabilities: {}
+                        isSavable: true
+                        isReturnable: true
+                        isHidden: false
+                        discountedPrice: null
+                        etaText: Society 6 typically ships in-stock items in 5 to 7 business days.
+                        promotion: null
+                        shippingPromotion: null
+                        linkUri: https://society6.com/product/ski-patrol-experts-only-double-black-diamond-2_metal-print#s6-3789319p54a71v465
+                        taxonomyCategories:
+                        - id: 43
+                          title: Art & Wall Décor
+                          slug: null
+                          parent_id: 8
+                        - id: 8
+                          title: Décor
+                          slug: decor
+                          parent_id: null
+                        userData:
+                          cart:
+                            id: 7535304
+                            cartProductId: null
+                            quantity: 0
+                          registry:
+                            id: null
+                            registryProductId: null
+                            quantity: 0
+                          userOpinion: 0
+                          isPurchased: false
+                          activeRooms:
+                          - id: 348686
+                            name: Living Room
+                        _embedded:
+                          product_variant:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/2108951
+                          vendor:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/vendor/207
+                          taxonomy:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5922
+                          images:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/files/8066143
+                          subsets: []
+                          inventoryType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/inventory-types/3
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor-variants-lite/8104621
+                    _links:
+                      self:
+                        href: http://api.havenly.local/user-likes-lite/510124
+                page_count: 1
+                page_size: 25
+                total_items: 1
+                page: 1
+        '401':
+          description: Unauthorized
+      description: 'This is another way of fetching a user''s likes.
+
+
+        This is a doctrine connected endpoint on the existing entities. While this works now, integrating with it may not be a long term solution as the user likes system may change in the near future.
+
+        However, in the meantime, this does allow you to fetch user likes with all of the doctrine filters as needed.'
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

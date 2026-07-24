@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Board Feedback API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Board Feedback
+paths:
+  /board-feedback:
+    get:
+      operationId: boardFeedback
+      summary: Board Feedback (collection)
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get all board feedback for the authed user.
+      security:
+      - bearerAuth: []
+    post:
+      operationId: createBoardFeedback
+      summary: Create Board Feedback
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Create a piece of board feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              board: 123456789
+              question: 123
+              answer: New answer and questionboard combo (not really)
+      security:
+      - bearerAuth: []
+  /board-feedback/{id}:
+    get:
+      operationId: boardFeedbackById
+      summary: Board Feedback By ID
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get a single entity of board feedback by ID.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: removeAPieceOfBoardFeedback
+      summary: Remove a piece of board feedback
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: This deletes board feedback by ID.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

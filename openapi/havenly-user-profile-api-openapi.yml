@@ -1,0 +1,121 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses User Profile API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: User Profile
+paths:
+  /user-profile:
+    get:
+      operationId: userProfile
+      summary: User Profile (deprecated)
+      tags:
+      - User Profile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 193860
+                username: josh+admin@havenly.com
+                role: admin
+                email: josh+admin@havenly.com
+                name: Josh Richard
+                first_name: Josh
+                last_name: Richard
+                unread_message_count: null
+                avatar: null
+                fbId: null
+                _links: []
+        '401':
+          description: Unauthorized
+      description: Used to retrieve user information about the currently authenticated user
+      security:
+      - bearerAuth: []
+  /user-profiles:
+    get:
+      operationId: userProfiles
+      summary: User Profiles
+      tags:
+      - User Profile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 1
+                total: 1
+                collectionTotal: 98445
+                _links:
+                  self:
+                    href: http://api.havenly.local/user-profiles?page=1
+                  first:
+                    href: http://api.havenly.local/user-profiles
+                  last:
+                    href: http://api.havenly.local/user-profiles?page=1
+                _embedded:
+                  user_profile:
+                  - id: 98445
+                    converted: false
+                    created:
+                      date: '2017-08-28 16:46:24.728860'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2017-08-28 16:46:24.728818'
+                      timezone_type: 3
+                      timezone: UTC
+                    roomPackage: null
+                    roomType: null
+                    profileStyles: null
+                    user_id: 54321
+                    username: RahsheedaLewis
+                    role: customer
+                    email: 54321-customer@havenly.com
+                    name: Rahsheeda Lewis
+                    first_name: Rahsheeda
+                    last_name: Lewis
+                    unread_message_count: '0'
+                    preferred_designer_id: null
+                    avatar: null
+                    fbId: '10208334639543500'
+                    _links:
+                      self:
+                        href: http://api.havenly.local/user-profiles/98445
+                page_count: 1
+                page_size: 25
+                total_items: 1
+                page: 1
+        '401':
+          description: Unauthorized
+      description: Used to retrieve user information about the currently authenticated user
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

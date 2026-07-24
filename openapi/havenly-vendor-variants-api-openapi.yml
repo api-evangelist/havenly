@@ -1,0 +1,810 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Vendor Variants API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Vendor Variants
+paths:
+  /vendor-variants:
+    get:
+      operationId: fetchVendorVariants
+      summary: Fetch vendor variants
+      tags:
+      - Vendor Variants
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get a collection of vendor variants
+      security:
+      - bearerAuth: []
+    post:
+      operationId: createANewVendorVariant
+      summary: Create a new vendor variant
+      tags:
+      - Vendor Variants
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 7724249
+                sku: ''
+                title: new variant title
+                description: test
+                color: colorful
+                dimensions: '3'
+                material: material goes here
+                feedSource: null
+                uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                shipSurcharge: '1.11'
+                inStock: false
+                backOrdered: true
+                assemblyRequired: false
+                flaggedForReview: false
+                price: '100'
+                salePrice: null
+                saleStartDate: null
+                saleEndDate: null
+                wholesalePrice: null
+                availabilities: {}
+                isSavable: true
+                isReturnable: false
+                isHidden: false
+                discountedPrice: null
+                etaText: null
+                promotion: null
+                shippingPromotion: null
+                _embedded:
+                  link:
+                    id: 1553635
+                    uri: 'https: //www.phishtank.com/images/example_phish.gifffffff'
+                    created:
+                      date: '2017-03-29 04:27:04.651146'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2017-03-29 04:27:04.651104'
+                      timezone_type: 3
+                      timezone: UTC
+                    _links:
+                      self:
+                        href: http://api.havenly.local/links/1553635
+                  product_variant:
+                    id: 1669602
+                    upc: null
+                    asin: null
+                    attributes:
+                    - id: 15201
+                      value: colorful
+                      type: color
+                    - id: 468813
+                      value: material goes here
+                      type: material
+                    - id: 201297
+                      value: '3'
+                      type: dimensions
+                    attributeFamilies:
+                    - 127
+                    - 87
+                    - 4
+                    - 139
+                    _embedded:
+                      hav_product:
+                        id: 6475818
+                        title: new variant title
+                        description: test
+                        brand: null
+                        _embedded:
+                          product_variants:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669595
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669602
+                        _links:
+                          self:
+                            href: http://api.havenly.local/hav-products/6475818
+                      vendor_variants:
+                      - id: 7724249
+                        sku: ''
+                        title: new variant title
+                        description: test
+                        color: colorful
+                        dimensions: '3'
+                        material: material goes here
+                        feedSource: null
+                        uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                        shipSurcharge: '1.11'
+                        inStock: false
+                        backOrdered: true
+                        assemblyRequired: false
+                        flaggedForReview: false
+                        price: '100'
+                        salePrice: null
+                        saleStartDate: null
+                        saleEndDate: null
+                        wholesalePrice: null
+                        availabilities: {}
+                        isSavable: true
+                        isReturnable: false
+                        isHidden: false
+                        discountedPrice: null
+                        etaText: null
+                        promotion: null
+                        shippingPromotion: null
+                        _embedded:
+                          link:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/links/1553635
+                          product_variant:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669602
+                          vendor:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/vendor/812
+                          taxonomy:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5922
+                          attribute_value:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/15201
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/468813
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/201297
+                          product_policy: []
+                          images:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/files/6686644
+                          subsets:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-subsets/5
+                          creator:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/users/193860
+                          inventoryType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/inventory-types/2
+                          shippingType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/shipping-types/1
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor-variants/7724249
+                      - id: 7724249
+                        sku: ''
+                        title: new variant title
+                        description: test
+                        color: colorful
+                        dimensions: '3'
+                        material: material goes here
+                        feedSource: null
+                        uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                        shipSurcharge: '1.11'
+                        inStock: false
+                        backOrdered: true
+                        assemblyRequired: false
+                        flaggedForReview: false
+                        price: '100'
+                        salePrice: null
+                        saleStartDate: null
+                        saleEndDate: null
+                        wholesalePrice: null
+                        availabilities: {}
+                        isSavable: true
+                        isReturnable: false
+                        isHidden: false
+                        discountedPrice: null
+                        etaText: null
+                        promotion: null
+                        shippingPromotion: null
+                        _embedded:
+                          link:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/links/1553635
+                          product_variant:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669602
+                          vendor:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/vendor/812
+                          taxonomy:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5922
+                          attribute_value:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/15201
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/468813
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/201297
+                          product_policy: []
+                          images:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/files/6686644
+                          subsets:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-subsets/5
+                          creator:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/users/193860
+                          inventoryType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/inventory-types/2
+                          shippingType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/shipping-types/1
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor-variants/7724249
+                    _links:
+                      self:
+                        href: http://api.havenly.local/product-variants/1669602
+                  vendor:
+                    id: 812
+                    name: 1000bulbs.com
+                    url: http://1000bulbs.com
+                    type: 0
+                    priority: 0
+                    tradeDiscount: false
+                    orderMinimum: '0.00'
+                    catalogType: false
+                    styleId: 1
+                    productTypeId: 1
+                    markup: ''
+                    useApi: false
+                    preferred: false
+                    anonBuyable: true
+                    apiAbsoluteDomainName: null
+                    apiProtocol: null
+                    notes: ''
+                    returnPolicyUrl: ''
+                    returnPolicyDetails: null
+                    shipping: ''
+                    shippingPolicyUrl: ''
+                    taxStates: ''
+                    updated:
+                      date: -0001-11-30 00:00:00.000000
+                      timezone_type: 3
+                      timezone: UTC
+                    affiliateLink: null
+                    commissionThreshold: null
+                    isFeedCategoryRequired: true
+                    created:
+                      date: '2016-02-12 21:03:59.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2016-03-16 16:29:01.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    productVendors: {}
+                    vendorVariants: {}
+                    productPolicy: null
+                    apiStatus: null
+                    vendorPromotions: {}
+                    taxableStates: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/vendor/812
+                  taxonomy:
+                    id: 5922
+                    title: Artwork
+                    enabled: true
+                    _embedded:
+                      parent:
+                        id: 5388
+                        title: Decor
+                        enabled: true
+                        _embedded:
+                          parent:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5374
+                        _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5388
+                    _links:
+                      self:
+                        href: http://api.havenly.local/taxonomies/5922
+                  attribute_value:
+                  - id: 15201
+                    value: colorful
+                    created: null
+                    modified: null
+                    _embedded:
+                      attributeType:
+                        id: 1
+                        title: color
+                        created: null
+                        modified: null
+                        attributes: {}
+                        _links:
+                          self:
+                            href: http://api.havenly.local/attribute-types/1
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-values/15201
+                  - id: 468813
+                    value: material goes here
+                    created:
+                      date: '2017-03-25 20:46:03.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2017-03-25 20:46:03.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    _embedded:
+                      attributeType:
+                        id: 2
+                        title: material
+                        created: null
+                        modified: null
+                        attributes: {}
+                        _links:
+                          self:
+                            href: http://api.havenly.local/attribute-types/2
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-values/468813
+                  - id: 201297
+                    value: '3'
+                    created: null
+                    modified: null
+                    _embedded:
+                      attributeType:
+                        id: 3
+                        title: dimensions
+                        created: null
+                        modified: null
+                        attributes: {}
+                        _links:
+                          self:
+                            href: http://api.havenly.local/attribute-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-values/201297
+                  product_policy: []
+                  images:
+                  - id: 6686644
+                    name: php_58db37989eff9.jpg
+                    title: null
+                    size: 11822
+                    mimeType: image/jpeg
+                    md5: c35650c69ed29e850b0a32c4d8f99c93
+                    uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                    user: null
+                    _embedded:
+                      messages: []
+                    _links:
+                      self:
+                        href: http://api.havenly.local/files/6686644
+                  subsets:
+                  - id: 5
+                    name: Abstract
+                    _embedded:
+                      taxonomies:
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5922
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5924
+                    _links:
+                      self:
+                        href: http://api.havenly.local/product-subsets/5
+                  creator:
+                    id: 193860
+                    name: Josh Richard
+                    firstName: Josh
+                    lastName: Richard
+                    avatar: null
+                    email: josh+admin@havenly.com
+                    fbId: null
+                    smoochId: null
+                    preferredDesigner: null
+                    _links:
+                      self:
+                        href: http://api.havenly.local/users/193860
+                  inventoryType:
+                    id: 2
+                    title: Quickship
+                    _links:
+                      self:
+                        href: http://api.havenly.local/inventory-types/2
+                  shippingType:
+                    id: 1
+                    title: Standard
+                    _embedded:
+                      taxonomies:
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5375
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5381
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5391
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5432
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5433
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5443
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5500
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5589
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5599
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5604
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5636
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5639
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5714
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5779
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5823
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5923
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5930
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6056
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6128
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6293
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6342
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6597
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6659
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6671
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6672
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6966
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6999
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7018
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7049
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7057
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7130
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7131
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7135
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7173
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7215
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7289
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7523
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7524
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7545
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7606
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7607
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7608
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7611
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7652
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7659
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7661
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7670
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7671
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7911
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8019
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8077
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8131
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8263
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8587
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8640
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8751
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8775
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8804
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8815
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8816
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8842
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8869
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9242
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9283
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9388
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9432
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9457
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9481
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9600
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9620
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9636
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9638
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9683
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9724
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9738
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9768
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9797
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9799
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9867
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9879
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9881
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9981
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10130
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10175
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10314
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10331
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10338
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10340
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10454
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10475
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10477
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10479
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10480
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10490
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10491
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10493
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10761
+                    _links:
+                      self:
+                        href: http://api.havenly.local/shipping-types/1
+                _links:
+                  self:
+                    href: http://api.havenly.local/vendor-variants/7724249
+        '401':
+          description: Unauthorized
+      description: There are many values that can be passed to create a vendor variant. This is a sample of what the payload could look like. For a full list of available fields, look at the response sample.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              attributeFamilies:
+              - 127
+              - 87
+              - 4
+              - 139
+              color: colorful
+              description: test
+              price: 500
+              dimensions: '3'
+              inventoryType: 2
+              id: null
+              images:
+              - http://s7d4.scene7.com/is/image/roomandboard/?src=ir{roomandboardrender/braden_cush2sofa_80?obj=main&sharp=1&src=rpt_tudorink&rs=R4U3&obj=material&src=drape_material_eb}&$prodzoom0$&size=498,300&scl=1
+              isBackordered: 1
+              isInStock: 0
+              material: material goes here
+              product: null
+              retailPrice: 100
+              saleEndDate: '2016-09-23'
+              salePrice: 2.22
+              saleStartDate: '2016-09-02'
+              shipSurcharge: 1.11
+              shippingType: 1
+              subSets:
+              - 5
+              taxonomy: 5922
+              title: new variant title
+              vendor: 812
+              weblink: 'https: //www.phishtank.com/images/example_phish.gifffffff'
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

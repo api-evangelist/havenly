@@ -1,0 +1,96 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Users API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Users
+paths:
+  /users:
+    post:
+      operationId: createAUser
+      summary: Create a user
+      tags:
+      - Users
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 371461
+                name: Postman User
+                firstName: Postman
+                lastName: User
+                avatar: null
+                email: 1598-postman@havenly.com
+                fbId: null
+                smoochId: null
+                preferredDesigner: null
+                _links:
+                  self:
+                    href: http://api.havenly.local/users/371461
+        '422':
+          description: Unprocessable Entity (WebDAV) (RFC 4918)
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                validation_messages:
+                  name:
+                    isEmpty: Value is required and can't be empty
+                  firstName:
+                    isEmpty: Value is required and can't be empty
+                  lastName:
+                    isEmpty: Value is required and can't be empty
+                  source:
+                    isEmpty: Value is required and can't be empty
+                type: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+                title: Unprocessable Entity
+                status: 422
+                detail: Failed Validation
+        '401':
+          description: Unauthorized
+      description: 'Create a new user.
+
+        This route has a pre-request script for Postman such that an email and password will be generated for you and saved to your environment
+
+        This route does not require Authentication, however, in order to create a user that has a designer/admin role you must authenticate as an admin first and use this route authenticated.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              email: '{{username}}'
+              name: Postman User
+              password: '{{password}}'
+              source: postman
+              role: customer
+              firstName: Postman
+              lastName: User
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}

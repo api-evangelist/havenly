@@ -1,0 +1,112 @@
+openapi: 3.0.3
+info:
+  title: Havenly Addresses Attribute Types API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Attribute Types
+paths:
+  /attribute-types:
+    get:
+      operationId: fetchAttributeTypes
+      summary: Fetch Attribute Types (Collection)
+      tags:
+      - Attribute Types
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 6
+                total: 6
+                collectionTotal: 6
+                _links:
+                  self:
+                    href: http://api.havenly.local/attribute-types?page=1
+                  first:
+                    href: http://api.havenly.local/attribute-types
+                  last:
+                    href: http://api.havenly.local/attribute-types?page=1
+                _embedded:
+                  attribute_type:
+                  - id: 1
+                    title: color
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/1
+                  - id: 2
+                    title: material
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/2
+                  - id: 3
+                    title: dimensions
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/3
+                  - id: 4
+                    title: pattern
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/4
+                  - id: 5
+                    title: size
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/5
+                  - id: 6
+                    title: weight
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/6
+                page_count: 1
+                page_size: 25
+                total_items: 6
+                page: 1
+        '401':
+          description: Unauthorized
+      description: Get a list of all the attribute types.
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}
