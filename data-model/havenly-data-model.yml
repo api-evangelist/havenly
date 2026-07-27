@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  Derived from resource paths and HAL _links/_embedded references in
+  openapi/havenly-openapi.yml and postman/havenly-api.postman_collection.json.
+notation: >-
+  relationships use has_one / has_many / belongs_to with the reference field name; direction
+  is from the entity that owns the reference.
+entities:
+- {name: User, domain: identity, description: A Havenly account (customer, designer, or admin).}
+- {name: UserProfile, domain: identity, description: Profile detail for a user (user-profiles; user-profile is deprecated).}
+- {name: Address, domain: identity, description: A shipping/billing address associated with a user.}
+- {name: Board, domain: design, description: A design board (room/project) a user collaborates on.}
+- {name: BoardProduct, domain: design, description: A product placed on a board, linking a board to a vendor variant with a recommended quantity and status.}
+- {name: BoardFeedback, domain: design, description: A piece of feedback left on a board.}
+- {name: BoardFeedbackQuestion, domain: design, description: A prompt/question used to collect board feedback.}
+- {name: VendorVariant, domain: catalog, description: A purchasable variant of a vendor product (the shoppable catalog unit).}
+- {name: Vendor, domain: catalog, description: A furniture/decor brand supplying products.}
+- {name: AttributeType, domain: catalog, description: A product attribute dimension (color, material, dimensions, pattern, size, weight).}
+- {name: UserOpinion, domain: engagement, description: A user like/opinion on a vendor variant.}
+relationships:
+- {from: User, to: UserProfile, kind: has_one, via: user}
+- {from: User, to: Address, kind: has_many, via: user}
+- {from: User, to: Board, kind: has_many, via: user}
+- {from: Board, to: BoardProduct, kind: has_many, via: board}
+- {from: BoardProduct, to: Board, kind: belongs_to, via: board}
+- {from: BoardProduct, to: VendorVariant, kind: belongs_to, via: vendorVariant}
+- {from: Board, to: BoardFeedback, kind: has_many, via: board}
+- {from: BoardFeedback, to: BoardFeedbackQuestion, kind: belongs_to, via: question}
+- {from: VendorVariant, to: Vendor, kind: belongs_to, via: vendor}
+- {from: VendorVariant, to: AttributeType, kind: has_many, via: attributeType}
+- {from: UserOpinion, to: VendorVariant, kind: belongs_to, via: vendorVariant}
+- {from: UserOpinion, to: User, kind: belongs_to, via: user}

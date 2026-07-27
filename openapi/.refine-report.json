@@ -1,0 +1,34 @@
+{
+  "provider": "havenly",
+  "sources": [
+    "havenly-addresses-api-openapi.yml",
+    "havenly-attribute-types-api-openapi.yml",
+    "havenly-authentication-api-openapi.yml",
+    "havenly-board-feedback-api-openapi.yml",
+    "havenly-board-feedback-questions-api-openapi.yml",
+    "havenly-board-products-api-openapi.yml",
+    "havenly-searched-vendor-variants-api-openapi.yml",
+    "havenly-user-opinions-api-openapi.yml",
+    "havenly-user-profile-api-openapi.yml",
+    "havenly-users-api-openapi.yml",
+    "havenly-vendor-variants-api-openapi.yml"
+  ],
+  "outputs": [
+    "havenly-addresses-api-openapi.yml",
+    "havenly-attribute-types-api-openapi.yml",
+    "havenly-authentication-api-openapi.yml",
+    "havenly-board-feedback-api-openapi.yml",
+    "havenly-board-feedback-questions-api-openapi.yml",
+    "havenly-board-products-api-openapi.yml",
+    "havenly-searched-vendor-variants-api-openapi.yml",
+    "havenly-user-opinions-api-openapi.yml",
+    "havenly-user-profile-api-openapi.yml",
+    "havenly-users-api-openapi.yml",
+    "havenly-vendor-variants-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

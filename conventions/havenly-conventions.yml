@@ -1,0 +1,72 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://api-docs.havenly.com/ (public Postman documentation) plus derivation from
+  postman/havenly-api.postman_collection.json and openapi/havenly-openapi.yml.
+description: >-
+  Cross-cutting request/response conventions for the Havenly REST API: authentication style,
+  pagination, query filtering, response envelope (HAL+JSON), the error envelope, and versioning.
+  Idempotency is not documented by the provider.
+
+base_url: https://api.havenly.com
+api_style: REST over HTTPS, JSON request bodies, HAL+JSON responses
+
+authentication:
+  scheme: OAuth2 password grant -> Bearer token
+  token_endpoint: POST /oauth
+  grant_types: [password, external_oauth]
+  request_header: 'Authorization: Bearer <access_token>'
+  token_response: {token_type: Bearer, expires_in: 3600, refresh_token: present}
+  detail: authentication/havenly-authentication.yml
+  docs: https://api-docs.havenly.com/
+
+pagination:
+  style: page-number
+  request_params:
+    page: 1-based page number
+    limit: page size (example default 25)
+  response_fields:
+    page: current page
+    page_count: total pages
+    page_size: items per page
+    total_items: total across all pages
+    count: items in this page
+    _links: HAL navigation (self, first, last, next, prev)
+    _embedded: the resource collection keyed by resource name
+  docs: https://api-docs.havenly.com/
+
+query_filters:
+  supported: true
+  mechanism: zf-doctrine-querybuilder query filters
+  reference: https://github.com/zfcampus/zf-doctrine-querybuilder/blob/master/README.md
+  description: >-
+    Collection endpoints accept doctrine-querybuilder filter/order-by parameters for
+    field-level filtering and sorting.
+
+response_envelope:
+  format: HAL+JSON
+  fields:
+    _links: hypermedia links (self and related resources)
+    _embedded: nested/related resources inline
+  lite_endpoints: >-
+    Selected resources expose flatter "-lite" variants (e.g. /board-products-lite,
+    /user-likes-lite) with a lighter payload than the full HAL representation, built to
+    support faster front-end UIs.
+
+error_envelope:
+  format: rfc7807-problem-details
+  fields: [type, title, status, detail]
+  example: {type: 'http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html', title: invalid_client, status: 400, detail: Client credentials were not found in the headers or body}
+  detail: errors/havenly-problem-types.yml
+
+idempotency:
+  supported: false
+  note: No idempotency-key mechanism is documented for Havenly write operations.
+
+versioning:
+  scheme: none-published
+  note: No explicit API version segment or version header is documented; the base host is api.havenly.com.
+
+payments_testing:
+  processor: Stripe
+  note: Non-production environments accept Stripe test cards (https://stripe.com/docs/testing#cards).

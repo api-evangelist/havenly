@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  Derived from response examples in postman/havenly-api.postman_collection.json and
+  openapi/havenly-openapi.yml. The OAuth error example uses an RFC 7807 problem-details
+  envelope (type/title/status/detail).
+format: rfc7807
+envelope:
+  fields: [type, title, status, detail]
+  media_type: application/json
+problems:
+- status: 400
+  title: invalid_client
+  detail: Client credentials were not found in the headers or body.
+  source_operation: openapi/havenly-openapi.yml#externalOauthAuthentication
+- status: 400
+  title: invalid_grant
+  detail: Provided authorization grant (e.g. username/password) is invalid or expired.
+  source_operation: openapi/havenly-openapi.yml#externalOauthAuthentication
+- status: 401
+  title: Unauthorized
+  detail: Missing or invalid Bearer access token. Obtain one via POST /oauth.
+- status: 403
+  title: Forbidden
+  detail: Authenticated principal is not permitted to access this resource (observed on GET /addresses without authorization).
+- status: 404
+  title: Not Found
+  detail: The requested resource id does not exist.
+- status: 422
+  title: Unprocessable Entity
+  detail: Request body failed validation.
+note: >-
+  Titles/details below the OAuth cases are derived from HTTP semantics and observed
+  status codes; Havenly does not publish a dedicated error-code reference.

@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Havenly API
+  version: 1.0.0
+# generated: '2026-07-19'
+# method: generated
+# source: openapi/havenly-openapi.yml
+extends: openapi/havenly-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-derived-from: postman/havenly-api.postman_collection.json
+    x-apievangelist-conventions: conventions/havenly-conventions.yml
+    x-apievangelist-error-envelope: rfc7807
+    x-apievangelist-response-envelope: HAL+JSON
+- target: $.info
+  update:
+    x-apievangelist-auth: OAuth2 password grant returning a Bearer token (POST /oauth)
+    x-apievangelist-pagination: page/limit with HAL _links and page_count/total_items
+    x-apievangelist-query-filters: zf-doctrine-querybuilder

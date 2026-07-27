@@ -1,0 +1,2411 @@
+# generated: '2026-07-19'
+# method: derived
+# source: postman/havenly-api.postman_collection.json (https://api-docs.havenly.com/)
+openapi: 3.0.3
+info:
+  title: Havenly API
+  version: 1.0.0
+  description: 'Havenly REST API powering the interior-design platform: users and profiles, addresses,
+    design boards and board products, vendor product variants (catalog), attribute types, board feedback,
+    and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and
+    zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer
+    token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman
+    API documentation at https://api-docs.havenly.com.'
+  contact:
+    email: developers@havenly.com
+    url: https://api-docs.havenly.com/
+servers:
+- url: https://api.havenly.com
+  description: Production
+tags:
+- name: Authentication
+- name: Addresses
+- name: Attribute Types
+- name: Board Feedback
+- name: Board Feedback Questions
+- name: Board Products
+- name: Searched Vendor Variants
+- name: Vendor Variants
+- name: User Opinions
+- name: User Profile
+- name: Users
+paths:
+  /oauth:
+    post:
+      operationId: externalOauthAuthentication
+      summary: External OAuth Authentication
+      tags:
+      - Authentication
+      responses:
+        '400':
+          description: invalid_client
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                type: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+                title: invalid_client
+                status: 400
+                detail: Client credentials were not found in the headers or body
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                access_token: 5ca13702fca48ed153984d963a683a96cfcaf405
+                expires_in: 3600
+                token_type: Bearer
+                scope: null
+                refresh_token: 3d31c190d2c875a40049d614c5aee7e98f3e24bc
+        '401':
+          description: Unauthorized
+      description: This route is used to authenticate against the Havenly API as an Airbnb user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              grant_type: external_oauth
+              client_id: postman
+              provider: airbnb
+              access_token: 40xdf4fvdotrpnwv6tkuroaze
+  /addresses:
+    get:
+      operationId: addresses
+      summary: Addresses (collection)
+      tags:
+      - Addresses
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get all addresses associated to the user.
+      security:
+      - bearerAuth: []
+  /attribute-types:
+    get:
+      operationId: fetchAttributeTypes
+      summary: Fetch Attribute Types (Collection)
+      tags:
+      - Attribute Types
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 6
+                total: 6
+                collectionTotal: 6
+                _links:
+                  self:
+                    href: http://api.havenly.local/attribute-types?page=1
+                  first:
+                    href: http://api.havenly.local/attribute-types
+                  last:
+                    href: http://api.havenly.local/attribute-types?page=1
+                _embedded:
+                  attribute_type:
+                  - id: 1
+                    title: color
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/1
+                  - id: 2
+                    title: material
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/2
+                  - id: 3
+                    title: dimensions
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/3
+                  - id: 4
+                    title: pattern
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/4
+                  - id: 5
+                    title: size
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/5
+                  - id: 6
+                    title: weight
+                    created: null
+                    modified: null
+                    attributes: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-types/6
+                page_count: 1
+                page_size: 25
+                total_items: 6
+                page: 1
+        '401':
+          description: Unauthorized
+      description: Get a list of all the attribute types.
+      security:
+      - bearerAuth: []
+  /board-feedback:
+    get:
+      operationId: boardFeedback
+      summary: Board Feedback (collection)
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get all board feedback for the authed user.
+      security:
+      - bearerAuth: []
+    post:
+      operationId: createBoardFeedback
+      summary: Create Board Feedback
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Create a piece of board feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              board: 123456789
+              question: 123
+              answer: New answer and questionboard combo (not really)
+      security:
+      - bearerAuth: []
+  /board-feedback/{id}:
+    get:
+      operationId: boardFeedbackById
+      summary: Board Feedback By ID
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get a single entity of board feedback by ID.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      security:
+      - bearerAuth: []
+    delete:
+      operationId: removeAPieceOfBoardFeedback
+      summary: Remove a piece of board feedback
+      tags:
+      - Board Feedback
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: This deletes board feedback by ID.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      security:
+      - bearerAuth: []
+  /board-feedback-questions:
+    get:
+      operationId: boardFeedbackQuestions
+      summary: Board Feedback Questions (collection)
+      tags:
+      - Board Feedback Questions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 20
+                total: 20
+                collectionTotal: 20
+                _links:
+                  self:
+                    href: http://api.havenly.local/board-feedback-questions?page=1
+                  first:
+                    href: http://api.havenly.local/board-feedback-questions
+                  last:
+                    href: http://api.havenly.local/board-feedback-questions?page=1
+                _embedded:
+                  board_feedback_questions:
+                  - id: 1
+                    title: Low quality items
+                    question: Which items appear to be low quality?
+                    placeholder: 'For example: "Some of these pieces look cheap to me. The rug looks like
+                      it won''t last - too thin."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/1
+                  - id: 2
+                    title: Don't love the colors
+                    question: How can we improve the color scheme?
+                    placeholder: 'For example: "This is way too dark and gray. I want neutrals but I want
+                      brighter and lighter neutrals like whites."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/2
+                  - id: 3
+                    title: Not my style
+                    question: How can we get closer to your style?
+                    placeholder: 'For example: "This is way too bohemian and eclectic for me. I want it
+                      to be modern with a few fun, eclectic accents."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/3
+                  - id: 4
+                    title: Underwhelming
+                    question: What feels underwhelming to you?
+                    placeholder: 'For example: "The sofa and pillows do not excite me. They feels way
+                      too safe and plain. I want them to make a statement."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/4
+                  - id: 5
+                    title: Core pieces are missing
+                    question: Which pieces are missing from this design?
+                    placeholder: 'For example: "I mentioned I need curtains. I don''t see those in the
+                      design."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/5
+                  - id: 6
+                    title: Out of my price range
+                    question: What's out of your price range?
+                    placeholder: 'For example: "I would never pay that much for a lamp. Please show me
+                      less expensive options."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/6
+                  - id: 7
+                    title: The vibe is off
+                    question: How can we improve the vibe?
+                    placeholder: 'For example: "This feels too casual. I want a room that is more tailored
+                      and sophisticated."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/7
+                  - id: 8
+                    title: Not practical for my lifestyle
+                    question: How can we better design for your lifestyle?
+                    placeholder: 'For example: "I have a dog and 2 kids. That gets messy! A white sofa
+                      is not functional for my lifestyle."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/8
+                  - id: 9
+                    title: Scale is off
+                    question: Which items look out of scale?
+                    placeholder: 'For example: "My room is tiny, so this will not work in my space. There
+                      is no way that table will fit in the corner."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/9
+                  - id: 10
+                    title: Don't love the layout
+                    question: What layout is ideal for you?
+                    placeholder: 'For example: "I prefer my bed by the window. I''ve tried this layout
+                      and it doesn''t work."'
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/10
+                  - id: 11
+                    title: Love the colors
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/11
+                  - id: 12
+                    title: Good quality
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/12
+                  - id: 13
+                    title: The vibe is right
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/13
+                  - id: 14
+                    title: Matches my style
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/14
+                  - id: 15
+                    title: Price is on point
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/15
+                  - id: 16
+                    title: Layout looks right
+                    question: null
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/16
+                  - id: 17
+                    title: null
+                    question: How else can we improve this concept?
+                    placeholder: null
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/17
+                  - id: 18
+                    title: null
+                    question: How else can we improve this concept to make it perfect?
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 1
+                        name: Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/1
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/18
+                  - id: 19
+                    title: null
+                    question: How else can we improve your layout?
+                    placeholder: null
+                    isPositive: false
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/19
+                  - id: 20
+                    title: null
+                    question: Need any additional product recommendations or design help?
+                    placeholder: null
+                    isPositive: true
+                    created: null
+                    modified: null
+                    type: null
+                    _embedded:
+                      boardTypes:
+                      - id: 15
+                        name: Final Concept
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/15
+                      - id: 3
+                        name: Final Design
+                        _links:
+                          self:
+                            href: http://api.havenly.local/board-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-feedback-questions/20
+                page_count: 1
+                page_size: 25
+                total_items: 20
+                page: 1
+        '401':
+          description: Unauthorized
+      description: Get all board feedback questions
+      security:
+      - bearerAuth: []
+  /board-feedback-questions/{id}:
+    get:
+      operationId: boardFeedbackQuestionById
+      summary: Board Feedback Question by ID
+      tags:
+      - Board Feedback Questions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 5
+                title: Core pieces are missing
+                question: Which pieces are missing from this design?
+                placeholder: 'For example: "I mentioned I need curtains. I don''t see those in the design."'
+                isPositive: false
+                created: null
+                modified: null
+                type: null
+                _embedded:
+                  boardTypes:
+                  - id: 15
+                    name: Final Concept
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-types/15
+                  - id: 3
+                    name: Final Design
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-types/3
+                  - id: 1
+                    name: Concept
+                    _links:
+                      self:
+                        href: http://api.havenly.local/board-types/1
+                _links:
+                  self:
+                    href: http://api.havenly.local/board-feedback-questions/5
+        '401':
+          description: Unauthorized
+      description: Get a specific board feedback question by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      security:
+      - bearerAuth: []
+  /board-products:
+    post:
+      operationId: createBoardProduct
+      summary: Create Board Product
+      tags:
+      - Board Products
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Route used to add a product to a board.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              recommendedQty: 5
+              board: 52087
+              vendorVariant: 7759999
+              status: 2
+      security:
+      - bearerAuth: []
+  /board-products/{id}:
+    get:
+      operationId: getASpecificBoardProductById
+      summary: Get a Specific Board Product by ID
+      tags:
+      - Board Products
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get a specific board product by board product ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              recommendedQty: 5
+              board_id: 29781
+              vendor_variant_id: 1
+      security:
+      - bearerAuth: []
+  /board-products-lite/{id}:
+    get:
+      operationId: getABoardProductById
+      summary: Get a Board Product by ID (lite)
+      tags:
+      - Board Products
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 1584482
+                created:
+                  date: '2017-05-04 13:56:58.000000'
+                  timezone_type: 3
+                  timezone: UTC
+                boardId: 56073
+                designerId: 11676
+                recommendedQty: 1
+                subForVendorVariantId: 8099206
+                boardProductStatusId: 2
+                _embedded:
+                  vendorVariant:
+                    id: 6584313
+                    sku: '108224'
+                    title: line work rug 6'x6'
+                    description: 'power grid.  Inspired by the strict linear geometry of city electrical
+                      lines, Molly Fitzpatrick of DittoRepeats designed a pattern to disrupt the order.
+                      &quot;I started with a basic grid and broke it by adding tilted lines that bisect
+                      the rigid straight ones.&quot; Originally created as a digital file, master rug
+                      makers brought the design to life by hand-tufting the pattern on with chunky, twisted
+                      wool yarn. The result is an extra thick pile that adds modern warmth and cozy texture
+                      to any space.How will it look in your room? 12&quot;x12&quot; rug samples are available
+                      in stores for a fee refundable upon return of the sample.   • Designed by Molly
+                      Fitzpatrick of DittoRepeats  • Hand-tufted  • 100% New Zealand/Indian wool blend  •
+                      All surface rug pad recommended  • Vacuum regularly; professional cleaning recommended  •
+                      Made in India '
+                    color: Black and cream
+                    dimensions: 6' sq.
+                    material: Wool
+                    feedSource:
+                      __initializer__: {}
+                      __cloner__: {}
+                      __isInitialized__: false
+                    uri: https://static.havenly.com/product/production/php_58f471db6ed82.jpg
+                    shipSurcharge: '0.00'
+                    inStock: true
+                    backOrdered: false
+                    assemblyRequired: false
+                    flaggedForReview: true
+                    vendorPromotion: null
+                    price: 349
+                    shippingType: null
+                    salePrice: null
+                    saleStartDate: null
+                    saleEndDate: null
+                    wholesalePrice: null
+                    availabilities: {}
+                    isSavable: true
+                    isReturnable: true
+                    isHidden: false
+                    discountedPrice: null
+                    etaText: CB2 typically ships in-stock items in 3 to 5 business days.
+                    promotion: null
+                    shippingPromotion: null
+                    attributeFamilies:
+                    - id: 2
+                      name: Geometric
+                      parentId: 1
+                    - id: 1
+                      name: Pattern
+                      parentId: null
+                    - id: 84
+                      name: Wool
+                      parentId: 68
+                    - id: 68
+                      name: Fabric
+                      parentId: 28
+                    - id: 28
+                      name: Material
+                      parentId: null
+                    - id: 125
+                      name: Black
+                      parentId: 117
+                    - id: 117
+                      name: Color
+                      parentId: null
+                    - id: 127
+                      name: Beige
+                      parentId: 117
+                    - id: 155
+                      name: Square
+                      parentId: 138
+                    - id: 138
+                      name: Size/shape
+                      parentId: null
+                    linkUri: http://www.cb2.com/line-work-rug-6x6/s108224
+                    taxonomyCategories: []
+                    userData:
+                      cart:
+                        id: null
+                        cartProductId: null
+                        quantity: 0
+                      registry:
+                        id: null
+                        registryProductId: null
+                        quantity: 0
+                      userOpinion: 0
+                      isPurchased: false
+                      activeRooms: []
+                    _embedded:
+                      product_variant:
+                        id: 584260
+                        upc: null
+                        asin: null
+                        _embedded:
+                          hav_product:
+                            id: 5787489
+                            title: line work rug 6'x6'
+                            description: power grid.  Inspired by the strict linear geometry of city electrical
+                              lines, Molly Fitzpatrick of DittoRepeats designed a pattern to disrupt the
+                              order. "I started with a basic grid and broke it by adding tilted lines
+                              that bisect the rigid straight ones."
+                            brand: null
+                            _links:
+                              self:
+                                href: http://api.havenly.local/hav-products/5787489
+                        _links:
+                          self:
+                            href: http://api.havenly.local/product-variants/584260
+                      vendor:
+                        id: 4
+                        name: CB2
+                        isWholeSale: false
+                        affiliateLink: null
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor/4
+                      taxonomy:
+                        id: 5374
+                        title: Home & Garden
+                        parentId: null
+                        ancestors: []
+                        _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5374
+                      images:
+                      - id: 7709932
+                        name: php_58f471db6ed82.jpg
+                        title: null
+                        size: 222802
+                        mimeType: image/jpeg
+                        md5: d4afedf6b24c1eb32c1dce51ca7067fa
+                        uri: https://static.havenly.com/product/production/php_58f471db6ed82.jpg
+                        user: null
+                        _embedded:
+                          messages: []
+                        _links:
+                          self:
+                            href: http://api.havenly.local/files/7709932
+                      subsets: []
+                      inventoryType:
+                        id: 3
+                        title: Regular
+                        _links:
+                          self:
+                            href: http://api.havenly.local/inventory-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/vendor-variants-lite/6584313
+                _links:
+                  self:
+                    href: http://api.havenly.local/board-products-lite/1584482
+        '401':
+          description: Unauthorized
+      description: 'Get a specific board product by board product ID
+
+
+        This endpoint is a lighter/flatter payload in response. For the full HalJson representation use
+        the main endpoint.
+
+
+        We built these lighter endpoints to better support the FE team in building faster UIs'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              recommendedQty: 5
+              board_id: 29781
+              vendor_variant_id: 1
+      security:
+      - bearerAuth: []
+  /searched-vendor-variants:
+    post:
+      operationId: getUserSpecificData
+      summary: Get User Specific Data
+      tags:
+      - Searched Vendor Variants
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                vendorVariants:
+                - vendorVariantId: 8104621
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions: []
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104622
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping & White Glove Delivery
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104623
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: false
+                    text: Free Shipping
+                    terms: Offer includes all fine art prints and non-custom art, excluding all custom
+                      art prints. Available on standard shipping within the US. This promotion may not
+                      be combined with any other offer. Returns can be placed by contacting customer service.
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104624
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104625
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104626
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                - vendorVariantId: 8104627
+                  discountedPrice: null
+                  vendorPromotions: []
+                  shippingPromotions:
+                  - isTextOnly: true
+                    text: Free Shipping $35+
+                    terms: null
+                  userData:
+                    cart:
+                      id: null
+                      cartProductId: null
+                      quantity: 0
+                    registry:
+                      id: null
+                      registryProductId: null
+                      quantity: 0
+                    userOpinion: 0
+                    isPurchased: false
+                    activeRooms: []
+                _links:
+                  self:
+                    href: https://api-pr2324.havenly.com/searched-vendor-variants
+        '401':
+          description: Unauthorized
+      description: Given the list of vendor variant IDs, return user specific data regarding those variants.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              vendorVariants:
+              - 8104621
+              - 8104622
+              - 8104623
+              - 8104624
+              - 8104625
+              - 8104626
+              - 8104627
+      security:
+      - bearerAuth: []
+  /vendor-variants:
+    get:
+      operationId: fetchVendorVariants
+      summary: Fetch vendor variants
+      tags:
+      - Vendor Variants
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          description: Unauthorized
+      description: Get a collection of vendor variants
+      security:
+      - bearerAuth: []
+    post:
+      operationId: createANewVendorVariant
+      summary: Create a new vendor variant
+      tags:
+      - Vendor Variants
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 7724249
+                sku: ''
+                title: new variant title
+                description: test
+                color: colorful
+                dimensions: '3'
+                material: material goes here
+                feedSource: null
+                uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                shipSurcharge: '1.11'
+                inStock: false
+                backOrdered: true
+                assemblyRequired: false
+                flaggedForReview: false
+                price: '100'
+                salePrice: null
+                saleStartDate: null
+                saleEndDate: null
+                wholesalePrice: null
+                availabilities: {}
+                isSavable: true
+                isReturnable: false
+                isHidden: false
+                discountedPrice: null
+                etaText: null
+                promotion: null
+                shippingPromotion: null
+                _embedded:
+                  link:
+                    id: 1553635
+                    uri: 'https: //www.phishtank.com/images/example_phish.gifffffff'
+                    created:
+                      date: '2017-03-29 04:27:04.651146'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2017-03-29 04:27:04.651104'
+                      timezone_type: 3
+                      timezone: UTC
+                    _links:
+                      self:
+                        href: http://api.havenly.local/links/1553635
+                  product_variant:
+                    id: 1669602
+                    upc: null
+                    asin: null
+                    attributes:
+                    - id: 15201
+                      value: colorful
+                      type: color
+                    - id: 468813
+                      value: material goes here
+                      type: material
+                    - id: 201297
+                      value: '3'
+                      type: dimensions
+                    attributeFamilies:
+                    - 127
+                    - 87
+                    - 4
+                    - 139
+                    _embedded:
+                      hav_product:
+                        id: 6475818
+                        title: new variant title
+                        description: test
+                        brand: null
+                        _embedded:
+                          product_variants:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669595
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669602
+                        _links:
+                          self:
+                            href: http://api.havenly.local/hav-products/6475818
+                      vendor_variants:
+                      - id: 7724249
+                        sku: ''
+                        title: new variant title
+                        description: test
+                        color: colorful
+                        dimensions: '3'
+                        material: material goes here
+                        feedSource: null
+                        uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                        shipSurcharge: '1.11'
+                        inStock: false
+                        backOrdered: true
+                        assemblyRequired: false
+                        flaggedForReview: false
+                        price: '100'
+                        salePrice: null
+                        saleStartDate: null
+                        saleEndDate: null
+                        wholesalePrice: null
+                        availabilities: {}
+                        isSavable: true
+                        isReturnable: false
+                        isHidden: false
+                        discountedPrice: null
+                        etaText: null
+                        promotion: null
+                        shippingPromotion: null
+                        _embedded:
+                          link:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/links/1553635
+                          product_variant:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669602
+                          vendor:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/vendor/812
+                          taxonomy:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5922
+                          attribute_value:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/15201
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/468813
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/201297
+                          product_policy: []
+                          images:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/files/6686644
+                          subsets:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-subsets/5
+                          creator:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/users/193860
+                          inventoryType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/inventory-types/2
+                          shippingType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/shipping-types/1
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor-variants/7724249
+                      - id: 7724249
+                        sku: ''
+                        title: new variant title
+                        description: test
+                        color: colorful
+                        dimensions: '3'
+                        material: material goes here
+                        feedSource: null
+                        uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                        shipSurcharge: '1.11'
+                        inStock: false
+                        backOrdered: true
+                        assemblyRequired: false
+                        flaggedForReview: false
+                        price: '100'
+                        salePrice: null
+                        saleStartDate: null
+                        saleEndDate: null
+                        wholesalePrice: null
+                        availabilities: {}
+                        isSavable: true
+                        isReturnable: false
+                        isHidden: false
+                        discountedPrice: null
+                        etaText: null
+                        promotion: null
+                        shippingPromotion: null
+                        _embedded:
+                          link:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/links/1553635
+                          product_variant:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/1669602
+                          vendor:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/vendor/812
+                          taxonomy:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5922
+                          attribute_value:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/15201
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/468813
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/attribute-values/201297
+                          product_policy: []
+                          images:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/files/6686644
+                          subsets:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/product-subsets/5
+                          creator:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/users/193860
+                          inventoryType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/inventory-types/2
+                          shippingType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/shipping-types/1
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor-variants/7724249
+                    _links:
+                      self:
+                        href: http://api.havenly.local/product-variants/1669602
+                  vendor:
+                    id: 812
+                    name: 1000bulbs.com
+                    url: http://1000bulbs.com
+                    type: 0
+                    priority: 0
+                    tradeDiscount: false
+                    orderMinimum: '0.00'
+                    catalogType: false
+                    styleId: 1
+                    productTypeId: 1
+                    markup: ''
+                    useApi: false
+                    preferred: false
+                    anonBuyable: true
+                    apiAbsoluteDomainName: null
+                    apiProtocol: null
+                    notes: ''
+                    returnPolicyUrl: ''
+                    returnPolicyDetails: null
+                    shipping: ''
+                    shippingPolicyUrl: ''
+                    taxStates: ''
+                    updated:
+                      date: -0001-11-30 00:00:00.000000
+                      timezone_type: 3
+                      timezone: UTC
+                    affiliateLink: null
+                    commissionThreshold: null
+                    isFeedCategoryRequired: true
+                    created:
+                      date: '2016-02-12 21:03:59.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2016-03-16 16:29:01.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    productVendors: {}
+                    vendorVariants: {}
+                    productPolicy: null
+                    apiStatus: null
+                    vendorPromotions: {}
+                    taxableStates: {}
+                    _links:
+                      self:
+                        href: http://api.havenly.local/vendor/812
+                  taxonomy:
+                    id: 5922
+                    title: Artwork
+                    enabled: true
+                    _embedded:
+                      parent:
+                        id: 5388
+                        title: Decor
+                        enabled: true
+                        _embedded:
+                          parent:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5374
+                        _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5388
+                    _links:
+                      self:
+                        href: http://api.havenly.local/taxonomies/5922
+                  attribute_value:
+                  - id: 15201
+                    value: colorful
+                    created: null
+                    modified: null
+                    _embedded:
+                      attributeType:
+                        id: 1
+                        title: color
+                        created: null
+                        modified: null
+                        attributes: {}
+                        _links:
+                          self:
+                            href: http://api.havenly.local/attribute-types/1
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-values/15201
+                  - id: 468813
+                    value: material goes here
+                    created:
+                      date: '2017-03-25 20:46:03.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2017-03-25 20:46:03.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    _embedded:
+                      attributeType:
+                        id: 2
+                        title: material
+                        created: null
+                        modified: null
+                        attributes: {}
+                        _links:
+                          self:
+                            href: http://api.havenly.local/attribute-types/2
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-values/468813
+                  - id: 201297
+                    value: '3'
+                    created: null
+                    modified: null
+                    _embedded:
+                      attributeType:
+                        id: 3
+                        title: dimensions
+                        created: null
+                        modified: null
+                        attributes: {}
+                        _links:
+                          self:
+                            href: http://api.havenly.local/attribute-types/3
+                    _links:
+                      self:
+                        href: http://api.havenly.local/attribute-values/201297
+                  product_policy: []
+                  images:
+                  - id: 6686644
+                    name: php_58db37989eff9.jpg
+                    title: null
+                    size: 11822
+                    mimeType: image/jpeg
+                    md5: c35650c69ed29e850b0a32c4d8f99c93
+                    uri: https://static.havenly.com/product/development/php_58db37989eff9.jpg
+                    user: null
+                    _embedded:
+                      messages: []
+                    _links:
+                      self:
+                        href: http://api.havenly.local/files/6686644
+                  subsets:
+                  - id: 5
+                    name: Abstract
+                    _embedded:
+                      taxonomies:
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5922
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5924
+                    _links:
+                      self:
+                        href: http://api.havenly.local/product-subsets/5
+                  creator:
+                    id: 193860
+                    name: Josh Richard
+                    firstName: Josh
+                    lastName: Richard
+                    avatar: null
+                    email: josh+admin@havenly.com
+                    fbId: null
+                    smoochId: null
+                    preferredDesigner: null
+                    _links:
+                      self:
+                        href: http://api.havenly.local/users/193860
+                  inventoryType:
+                    id: 2
+                    title: Quickship
+                    _links:
+                      self:
+                        href: http://api.havenly.local/inventory-types/2
+                  shippingType:
+                    id: 1
+                    title: Standard
+                    _embedded:
+                      taxonomies:
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5375
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5381
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5391
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5432
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5433
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5443
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5500
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5589
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5599
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5604
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5636
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5639
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5714
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5779
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5823
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5923
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/5930
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6056
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6128
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6293
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6342
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6597
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6659
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6671
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6672
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6966
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/6999
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7018
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7049
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7057
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7130
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7131
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7135
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7173
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7215
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7289
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7523
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7524
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7545
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7606
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7607
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7608
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7611
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7652
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7659
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7661
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7670
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7671
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/7911
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8019
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8077
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8131
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8263
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8587
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8640
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8751
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8775
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8804
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8815
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8816
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8842
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/8869
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9242
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9283
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9388
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9432
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9457
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9481
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9600
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9620
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9636
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9638
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9683
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9724
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9738
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9768
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9797
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9799
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9867
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9879
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9881
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/9981
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10130
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10175
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10314
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10331
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10338
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10340
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10454
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10475
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10477
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10479
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10480
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10490
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10491
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10493
+                      - _links:
+                          self:
+                            href: http://api.havenly.local/taxonomies/10761
+                    _links:
+                      self:
+                        href: http://api.havenly.local/shipping-types/1
+                _links:
+                  self:
+                    href: http://api.havenly.local/vendor-variants/7724249
+        '401':
+          description: Unauthorized
+      description: There are many values that can be passed to create a vendor variant. This is a sample
+        of what the payload could look like. For a full list of available fields, look at the response
+        sample.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              attributeFamilies:
+              - 127
+              - 87
+              - 4
+              - 139
+              color: colorful
+              description: test
+              price: 500
+              dimensions: '3'
+              inventoryType: 2
+              id: null
+              images:
+              - http://s7d4.scene7.com/is/image/roomandboard/?src=ir{roomandboardrender/braden_cush2sofa_80?obj=main&sharp=1&src=rpt_tudorink&rs=R4U3&obj=material&src=drape_material_eb}&$prodzoom0$&size=498,300&scl=1
+              isBackordered: 1
+              isInStock: 0
+              material: material goes here
+              product: null
+              retailPrice: 100
+              saleEndDate: '2016-09-23'
+              salePrice: 2.22
+              saleStartDate: '2016-09-02'
+              shipSurcharge: 1.11
+              shippingType: 1
+              subSets:
+              - 5
+              taxonomy: 5922
+              title: new variant title
+              vendor: 812
+              weblink: 'https: //www.phishtank.com/images/example_phish.gifffffff'
+      security:
+      - bearerAuth: []
+  /user-opinions:
+    post:
+      operationId: createANewOpinion
+      summary: Create a new opinion
+      tags:
+      - User Opinions
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                vendorVariant: 8104621
+                opinion: 0
+                _links:
+                  self:
+                    href: https://api-pr2317.havenly.com/user-opinions
+        '401':
+          description: Unauthorized
+      description: 'Each POST is considered a new opinion. Therefore, we remove all other opinions for
+        that user to create this new one.
+
+
+
+        Opinions:
+
+
+        1 -&gt; Like
+
+        0 -&gt; No Opinion
+
+        -1 -&gt; Dislike'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              vendorVariant: 8104621
+              opinion: 1
+      security:
+      - bearerAuth: []
+  /user-likes-lite:
+    get:
+      operationId: fetchAllCustomerLikes
+      summary: Fetch all customer likes
+      tags:
+      - User Opinions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 1
+                total: 1
+                collectionTotal: 1
+                _links:
+                  self:
+                    href: http://api.havenly.local/user-likes-lite?page=1
+                  first:
+                    href: http://api.havenly.local/user-likes-lite
+                  last:
+                    href: http://api.havenly.local/user-likes-lite?page=1
+                _embedded:
+                  user_like:
+                  - id: 510124
+                    opinion: 1
+                    _embedded:
+                      vendorVariant:
+                        id: 8104621
+                        sku: ''
+                        title: Ski Patrol Experts Only Double Black Diamond 2 - Metal Print - 13"x13",
+                          Small
+                        description: Our metal prints are thin, lightweight and durable 1/16" aluminum
+                          sheet canvas. The high gloss finish enhances color and produces sharp image
+                          details. Each sheet has a 3/4" wooden frame attached to the back to offset from
+                          the wall. Prints have a wire or sawtooth hanger, depending on size selected.
+                        color: high gloss finish
+                        dimensions: 13"x13"
+                        material: Metal
+                        feedSource: null
+                        uri: https://static.havenly.com/product/production/php_590ffd806da08.jpg
+                        shipSurcharge: '0.00'
+                        inStock: true
+                        backOrdered: false
+                        assemblyRequired: false
+                        flaggedForReview: true
+                        price: 89
+                        shippingType: null
+                        salePrice: null
+                        saleStartDate: null
+                        saleEndDate: null
+                        wholesalePrice: null
+                        availabilities: {}
+                        isSavable: true
+                        isReturnable: true
+                        isHidden: false
+                        discountedPrice: null
+                        etaText: Society 6 typically ships in-stock items in 5 to 7 business days.
+                        promotion: null
+                        shippingPromotion: null
+                        linkUri: https://society6.com/product/ski-patrol-experts-only-double-black-diamond-2_metal-print#s6-3789319p54a71v465
+                        taxonomyCategories:
+                        - id: 43
+                          title: Art & Wall Décor
+                          slug: null
+                          parent_id: 8
+                        - id: 8
+                          title: Décor
+                          slug: decor
+                          parent_id: null
+                        userData:
+                          cart:
+                            id: 7535304
+                            cartProductId: null
+                            quantity: 0
+                          registry:
+                            id: null
+                            registryProductId: null
+                            quantity: 0
+                          userOpinion: 0
+                          isPurchased: false
+                          activeRooms:
+                          - id: 348686
+                            name: Living Room
+                        _embedded:
+                          product_variant:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/product-variants/2108951
+                          vendor:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/vendor/207
+                          taxonomy:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/taxonomies/5922
+                          images:
+                          - _links:
+                              self:
+                                href: http://api.havenly.local/files/8066143
+                          subsets: []
+                          inventoryType:
+                            _links:
+                              self:
+                                href: http://api.havenly.local/inventory-types/3
+                        _links:
+                          self:
+                            href: http://api.havenly.local/vendor-variants-lite/8104621
+                    _links:
+                      self:
+                        href: http://api.havenly.local/user-likes-lite/510124
+                page_count: 1
+                page_size: 25
+                total_items: 1
+                page: 1
+        '401':
+          description: Unauthorized
+      description: 'This is another way of fetching a user''s likes.
+
+
+        This is a doctrine connected endpoint on the existing entities. While this works now, integrating
+        with it may not be a long term solution as the user likes system may change in the near future.
+
+        However, in the meantime, this does allow you to fetch user likes with all of the doctrine filters
+        as needed.'
+      security:
+      - bearerAuth: []
+  /user-profile:
+    get:
+      operationId: userProfile
+      summary: User Profile (deprecated)
+      tags:
+      - User Profile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 193860
+                username: josh+admin@havenly.com
+                role: admin
+                email: josh+admin@havenly.com
+                name: Josh Richard
+                first_name: Josh
+                last_name: Richard
+                unread_message_count: null
+                avatar: null
+                fbId: null
+                _links: []
+        '401':
+          description: Unauthorized
+      description: Used to retrieve user information about the currently authenticated user
+      security:
+      - bearerAuth: []
+  /user-profiles:
+    get:
+      operationId: userProfiles
+      summary: User Profiles
+      tags:
+      - User Profile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 1
+                total: 1
+                collectionTotal: 98445
+                _links:
+                  self:
+                    href: http://api.havenly.local/user-profiles?page=1
+                  first:
+                    href: http://api.havenly.local/user-profiles
+                  last:
+                    href: http://api.havenly.local/user-profiles?page=1
+                _embedded:
+                  user_profile:
+                  - id: 98445
+                    converted: false
+                    created:
+                      date: '2017-08-28 16:46:24.728860'
+                      timezone_type: 3
+                      timezone: UTC
+                    modified:
+                      date: '2017-08-28 16:46:24.728818'
+                      timezone_type: 3
+                      timezone: UTC
+                    roomPackage: null
+                    roomType: null
+                    profileStyles: null
+                    user_id: 54321
+                    username: RahsheedaLewis
+                    role: customer
+                    email: 54321-customer@havenly.com
+                    name: Rahsheeda Lewis
+                    first_name: Rahsheeda
+                    last_name: Lewis
+                    unread_message_count: '0'
+                    preferred_designer_id: null
+                    avatar: null
+                    fbId: '10208334639543500'
+                    _links:
+                      self:
+                        href: http://api.havenly.local/user-profiles/98445
+                page_count: 1
+                page_size: 25
+                total_items: 1
+                page: 1
+        '401':
+          description: Unauthorized
+      description: Used to retrieve user information about the currently authenticated user
+      security:
+      - bearerAuth: []
+  /users:
+    post:
+      operationId: createAUser
+      summary: Create a user
+      tags:
+      - Users
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 371461
+                name: Postman User
+                firstName: Postman
+                lastName: User
+                avatar: null
+                email: 1598-postman@havenly.com
+                fbId: null
+                smoochId: null
+                preferredDesigner: null
+                _links:
+                  self:
+                    href: http://api.havenly.local/users/371461
+        '422':
+          description: Unprocessable Entity (WebDAV) (RFC 4918)
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                validation_messages:
+                  name:
+                    isEmpty: Value is required and can't be empty
+                  firstName:
+                    isEmpty: Value is required and can't be empty
+                  lastName:
+                    isEmpty: Value is required and can't be empty
+                  source:
+                    isEmpty: Value is required and can't be empty
+                type: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+                title: Unprocessable Entity
+                status: 422
+                detail: Failed Validation
+        '401':
+          description: Unauthorized
+      description: 'Create a new user.
+
+        This route has a pre-request script for Postman such that an email and password will be generated
+        for you and saved to your environment
+
+        This route does not require Authentication, however, in order to create a user that has a designer/admin
+        role you must authenticate as an admin first and use this route authenticated.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              email: '{{username}}'
+              name: Postman User
+              password: '{{password}}'
+              source: postman
+              role: customer
+              firstName: Postman
+              lastName: User
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token from POST /oauth (password grant), sent as Authorization: Bearer
+        <token>.'
+    oauth2:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: https://api.havenly.com/oauth
+          scopes: {}
+security:
+- bearerAuth: []

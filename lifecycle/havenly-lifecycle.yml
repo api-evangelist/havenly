@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  Derived from openapi/havenly-openapi.yml and the public Postman documentation at
+  https://api-docs.havenly.com/. Havenly does not publish a versioning policy, deprecation
+  policy, SLA, or status page.
+versioning:
+  scheme: none-published
+  current: null
+  note: No version segment or version header documented; base host is api.havenly.com.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla: null
+status_page: null
+deprecated_operations:
+- openapi/havenly-openapi.yml#userProfile   # GET /user-profile is labeled deprecated; use GET /user-profiles

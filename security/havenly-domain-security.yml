@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: havenly.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  3 23:30:48 2026 GMT
+  hsts: true
+  hsts_max_age: 15552000
+- host: api-docs.havenly.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 11 20:43:03 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.havenly.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 11 20:43:03 2026 GMT
+  hsts: true
+  hsts_max_age: 15552000
+domains:
+- domain: havenly.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

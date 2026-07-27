@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/havenly-openapi.yml
+note: >-
+  No official hosted/remote Havenly MCP server was found (searched provider docs, the npm
+  @modelcontextprotocol scope, and public MCP registries). This is a candidate tool list
+  derived one-tool-per-operation from the OpenAPI so an MCP server could be generated.
+server:
+  name: havenly
+  transport: http
+tools:
+- {name: authenticate, description: Obtain an OAuth2 Bearer access token, source_operation: openapi/havenly-openapi.yml#externalOauthAuthentication}
+- {name: list_addresses, description: List addresses for the authenticated user, source_operation: openapi/havenly-openapi.yml#addresses}
+- {name: list_attribute_types, description: List product attribute types, source_operation: openapi/havenly-openapi.yml#fetchAttributeTypes}
+- {name: list_board_feedback, description: List board feedback for the authed user, source_operation: openapi/havenly-openapi.yml#boardFeedback}
+- {name: create_board_feedback, description: Create a piece of board feedback, source_operation: openapi/havenly-openapi.yml#createBoardFeedback}
+- {name: get_board_feedback, description: Get board feedback by id, source_operation: openapi/havenly-openapi.yml#boardFeedbackById}
+- {name: delete_board_feedback, description: Remove a piece of board feedback, source_operation: openapi/havenly-openapi.yml#removeAPieceOfBoardFeedback}
+- {name: list_board_feedback_questions, description: List board feedback questions, source_operation: openapi/havenly-openapi.yml#boardFeedbackQuestions}
+- {name: get_board_feedback_question, description: Get a board feedback question by id, source_operation: openapi/havenly-openapi.yml#boardFeedbackQuestionById}
+- {name: create_board_product, description: Add a product to a board, source_operation: openapi/havenly-openapi.yml#createBoardProduct}
+- {name: get_board_product, description: Get a board product by id, source_operation: openapi/havenly-openapi.yml#getASpecificBoardProductById}
+- {name: get_board_product_lite, description: Get a board product by id (lite payload), source_operation: openapi/havenly-openapi.yml#getABoardProductById}
+- {name: get_user_specific_vendor_data, description: Get user-specific data for a set of vendor variants, source_operation: openapi/havenly-openapi.yml#getUserSpecificData}
+- {name: list_vendor_variants, description: List vendor product variants (catalog), source_operation: openapi/havenly-openapi.yml#fetchVendorVariants}
+- {name: create_vendor_variant, description: Create a new vendor variant, source_operation: openapi/havenly-openapi.yml#createANewVendorVariant}
+- {name: create_user_opinion, description: Create a user opinion/like on a vendor variant, source_operation: openapi/havenly-openapi.yml#createANewOpinion}
+- {name: list_customer_likes, description: Fetch all customer likes (lite), source_operation: openapi/havenly-openapi.yml#fetchAllCustomerLikes}
+- {name: get_user_profiles, description: Get user profiles, source_operation: openapi/havenly-openapi.yml#userProfiles}
+- {name: create_user, description: Create a user, source_operation: openapi/havenly-openapi.yml#createAUser}

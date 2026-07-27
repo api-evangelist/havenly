@@ -1,0 +1,14 @@
+generated: '2026-07-19'
+method: generated
+source: >-
+  Generated from openapi/havenly-openapi.yml operationIds and
+  conventions/havenly-conventions.yml. No provider-published Agent Skills or AGENTS.md found.
+skills:
+- file: havenly-authenticate-and-list-catalog.md
+  name: Authenticate and browse the Havenly vendor catalog
+  api: openapi/havenly-openapi.yml
+  operations: [externalOauthAuthentication, fetchVendorVariants, getUserSpecificData, fetchAttributeTypes]
+- file: havenly-add-product-to-board.md
+  name: Add a vendor product to a design board
+  api: openapi/havenly-openapi.yml
+  operations: [externalOauthAuthentication, fetchVendorVariants, createBoardProduct, getASpecificBoardProductById]

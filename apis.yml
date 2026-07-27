@@ -1,8 +1,16 @@
 aid: havenly
 name: Havenly
-description: Havenly is a company surfaced as a portfolio company of 500-global, foundry-group and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Havenly is an online interior-design platform that connects clients with professional
+  designers for virtual and in-person home-decorating services. Clients take a style quiz,
+  match with a designer, collaborate on 3D room renderings, and shop curated furniture and
+  decor from partner brands at exclusive prices. Havenly also offers AI-assisted design.
+  The company exposes a REST API (documented publicly via Postman at api-docs.havenly.com)
+  covering users and profiles, addresses, design boards and board products, a vendor product
+  catalog (vendor variants), attribute types, board feedback, and user opinions/likes.
+  Authentication is OAuth2 (password grant) returning a Bearer token; HAL+JSON responses use
+  page/limit pagination and zf-doctrine-querybuilder query filters. Havenly is backed by
+  500 Global and Foundry Group.
 url: https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,17 +19,315 @@ x-backed-by:
 - foundry-group
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://havenly.com/favicon.ico
 tags:
 - Company
-apis: []
+- Interior Design
+- Home Decor
+- Furniture
+- E-Commerce
+- Marketplace
+- Design
+- Retail
+- AI
+apis:
+- aid: havenly:havenly-addresses-api
+  name: Havenly Addresses API
+  description: The Addresses API from Havenly — 1 operation(s) for addresses.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-addresses-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-attribute-types-api
+  name: Havenly Attribute Types API
+  description: The Attribute Types API from Havenly — 1 operation(s) for attribute types.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Attribute Types
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-attribute-types-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-authentication-api
+  name: Havenly Authentication API
+  description: The Authentication API from Havenly — 1 operation(s) for authentication.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-authentication-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-board-feedback-api
+  name: Havenly Board Feedback API
+  description: The Board Feedback API from Havenly — 2 operation(s) for board feedback.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Board Feedback
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-board-feedback-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-board-feedback-questions-api
+  name: Havenly Board Feedback Questions API
+  description: >-
+    The Board Feedback Questions API from Havenly — 2 operation(s) for board feedback questions.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Board Feedback Questions
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-board-feedback-questions-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-board-products-api
+  name: Havenly Board Products API
+  description: The Board Products API from Havenly — 3 operation(s) for board products.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Board Products
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-board-products-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-searched-vendor-variants-api
+  name: Havenly Searched Vendor Variants API
+  description: >-
+    The Searched Vendor Variants API from Havenly — 1 operation(s) for searched vendor variants.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Searched Vendor Variants
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-searched-vendor-variants-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-user-opinions-api
+  name: Havenly User Opinions API
+  description: The User Opinions API from Havenly — 2 operation(s) for user opinions.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - User Opinions
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-user-opinions-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-user-profile-api
+  name: Havenly User Profile API
+  description: The User Profile API from Havenly — 2 operation(s) for user profile.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - User Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-user-profile-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-users-api
+  name: Havenly Users API
+  description: The Users API from Havenly — 1 operation(s) for users.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-users-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
+- aid: havenly:havenly-vendor-variants-api
+  name: Havenly Vendor Variants API
+  description: The Vendor Variants API from Havenly — 1 operation(s) for vendor variants.
+  humanURL: https://api-docs.havenly.com/
+  baseURL: https://api.havenly.com
+  tags:
+  - Vendor Variants
+  properties:
+  - type: OpenAPI
+    url: openapi/havenly-vendor-variants-api-openapi.yml
+  - type: Postman
+    url: postman/havenly-api.postman_collection.json
+  - type: Authentication
+    url: authentication/havenly-authentication.yml
+  - type: Conventions
+    url: conventions/havenly-conventions.yml
+  - type: ErrorCatalog
+    url: errors/havenly-problem-types.yml
+  - type: DataModel
+    url: data-model/havenly-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/havenly-lifecycle.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: OAuthScopes
+  url: scopes/havenly-scopes.yml
 - type: Website
   url: https://havenly.com
+- type: Documentation
+  url: https://api-docs.havenly.com/
+- type: APIReference
+  url: https://api-docs.havenly.com/
+- type: Pricing
+  url: https://havenly.com/pricing
+- type: SignUp
+  url: https://havenly.com/interior-design-style-quiz/style-inspiration
+- type: Login
+  url: https://havenly.com/login
+- type: TermsOfService
+  url: https://havenly.com/terms
+- type: PrivacyPolicy
+  url: https://havenly.com/privacy
+- type: Blog
+  url: https://havenly.com/blog
+- type: Support
+  url: https://havenly.kustomer.help
+- type: HelpCenter
+  url: https://help.havenly.com/
+- type: LLMsTxt
+  url: llms/havenly-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/havenly-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

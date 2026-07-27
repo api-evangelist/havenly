@@ -1,0 +1,27 @@
+# Havenly
+
+> Havenly is an online interior-design platform connecting clients with professional designers for virtual and in-person home-decorating services, with a shoppable catalog of vendor furniture and decor and AI-assisted design. Its REST API (documented publicly via Postman) covers users, addresses, design boards and board products, a vendor product catalog, board feedback, and user opinions. Authentication is OAuth2 password grant returning a Bearer token; responses are HAL+JSON with page/limit pagination.
+
+## APIs
+
+- [Havenly API](https://api-docs.havenly.com/): REST API for users/profiles, addresses, boards, board products, vendor variants, attribute types, board feedback, and user opinions. Base URL https://api.havenly.com.
+
+## Specs
+
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/openapi/havenly-openapi.yml): Derived from the public Postman collection (20 operations).
+- [Postman Collection](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/postman/havenly-api.postman_collection.json): The provider's public Postman documentation, verbatim.
+
+## Artifacts
+
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/authentication/havenly-authentication.yml): OAuth2 password grant + Bearer.
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/conventions/havenly-conventions.yml): Auth, pagination, query filters, HAL envelope, error envelope.
+- [Error Catalog](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/errors/havenly-problem-types.yml): RFC 7807 problem types.
+- [Data Model](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/data-model/havenly-data-model.yml): Entity-relationship graph.
+- [MCP (candidate)](https://raw.githubusercontent.com/api-evangelist/havenly/refs/heads/main/mcp/havenly-mcp.yml): Candidate MCP tool list.
+
+## Docs
+
+- [API Documentation](https://api-docs.havenly.com/)
+- [Havenly](https://havenly.com/)
+- [Help Center](https://help.havenly.com/)
+- [Pricing](https://havenly.com/pricing)
