@@ -296,6 +296,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/havenly-mcp.yml
+- type: Overlay
+  url: overlays/havenly-openapi-overlay.yaml
 - type: OAuthScopes
   url: scopes/havenly-scopes.yml
 - type: Website
