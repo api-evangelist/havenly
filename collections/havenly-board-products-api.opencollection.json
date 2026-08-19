@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Havenly Addresses Board Products API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Board Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Board Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.havenly.com/board-products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Route used to add a product to a board."
+        },
+        {
+          "info": {
+            "name": "Get a Specific Board Product by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.havenly.com/board-products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a specific board product by board product ID"
+        },
+        {
+          "info": {
+            "name": "Get a Board Product by ID (lite)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.havenly.com/board-products-lite/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a specific board product by board product ID\n\nThis endpoint is a lighter/flatter payload in response. For the full HalJson representation use the main endpoint.\n\nWe built these lighter endpoints to better support the FE team in building faster UIs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

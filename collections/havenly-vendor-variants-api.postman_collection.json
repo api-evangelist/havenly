@@ -1,0 +1,310 @@
+{
+  "item": [
+    {
+      "id": "af607956-a81e-4c05-bbc6-0b09efdc491a",
+      "name": "Vendor Variants",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8225ae9e-d80c-4b30-a516-23fb7b371424",
+          "name": "Fetch vendor variants",
+          "request": {
+            "name": "Fetch vendor variants",
+            "description": {
+              "content": "Get a collection of vendor variants",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendor-variants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b297571b-5d08-410b-9cd3-90bd2aa303b4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendor-variants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02c92810-fe2e-4642-b092-6ff8541838e3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendor-variants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6314ed8-d7c4-49cd-ad89-c42e4425a073",
+          "name": "Create a new vendor variant",
+          "request": {
+            "name": "Create a new vendor variant",
+            "description": {
+              "content": "There are many values that can be passed to create a vendor variant. This is a sample of what the payload could look like. For a full list of available fields, look at the response sample.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendor-variants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c40eaf5f-41e6-43a0-a33a-5ef3de99d958",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendor-variants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeFamilies\": [\n    127,\n    87,\n    4,\n    139\n  ],\n  \"color\": \"colorful\",\n  \"description\": \"test\",\n  \"price\": 500,\n  \"dimensions\": \"3\",\n  \"inventoryType\": 2,\n  \"id\": null,\n  \"images\": [\n    \"http://s7d4.scene7.com/is/image/roomandboard/?src=ir{roomandboardrender/braden_cush2sofa_80?obj=main&sharp=1&src=rpt_tudorink&rs=R4U3&obj=material&src=drape_material_eb}&$prodzoom0$&size=498,300&scl=1\"\n  ],\n  \"isBackordered\": 1,\n  \"isInStock\": 0,\n  \"material\": \"material goes here\",\n  \"product\": null,\n  \"retailPrice\": 100,\n  \"saleEndDate\": \"2016-09-23\",\n  \"salePrice\": 2.22,\n  \"saleStartDate\": \"2016-09-02\",\n  \"shipSurcharge\": 1.11,\n  \"shippingType\": 1,\n  \"subSets\": [\n    5\n  ],\n  \"taxonomy\": 5922,\n  \"title\": \"new variant title\",\n  \"vendor\": 812,\n  \"weblink\": \"https: //www.phishtank.com/images/example_phish.gifffffff\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7724249,\n  \"sku\": \"\",\n  \"title\": \"new variant title\",\n  \"description\": \"test\",\n  \"color\": \"colorful\",\n  \"dimensions\": \"3\",\n  \"material\": \"material goes here\",\n  \"feedSource\": null,\n  \"uri\": \"https://static.havenly.com/product/development/php_58db37989eff9.jpg\",\n  \"shipSurcharge\": \"1.11\",\n  \"inStock\": false,\n  \"backOrdered\": true,\n  \"assemblyRequired\": false,\n  \"flaggedForReview\": false,\n  \"price\": \"100\",\n  \"salePrice\": null,\n  \"saleStartDate\": null,\n  \"saleEndDate\": null,\n  \"wholesalePrice\": null,\n  \"availabilities\": {},\n  \"isSavable\": true,\n  \"isReturnable\": false,\n  \"isHidden\": false,\n  \"discountedPrice\": null,\n  \"etaText\": null,\n  \"promotion\": null,\n  \"shippingPromotion\": null,\n  \"_embedded\": {\n    \"link\": {\n      \"id\": 1553635,\n      \"uri\": \"https: //www.phishtank.com/images/example_phish.gifffffff\",\n      \"created\": {\n        \"date\": \"2017-03-29 04:27:04.651146\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"modified\": {\n        \"date\": \"2017-03-29 04:27:04.651104\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/links/1553635\"\n        }\n      }\n    },\n    \"product_variant\": {\n      \"id\": 1669602,\n      \"upc\": null,\n      \"asin\": null,\n      \"attributes\": [\n        {\n          \"id\": 15201,\n          \"value\": \"colorful\",\n          \"type\": \"color\"\n        },\n        {\n          \"id\": 468813,\n          \"value\": \"material goes here\",\n          \"type\": \"material\"\n        },\n        {\n          \"id\": 201297,\n          \"value\": \"3\",\n          \"type\": \"dimensions\"\n        }\n      ],\n      \"attributeFamilies\": [\n        127,\n        87,\n        4,\n        139\n      ],\n      \"_embedded\": {\n        \"hav_product\": {\n          \"id\": 6475818,\n          \"title\": \"new variant title\",\n          \"description\": \"test\",\n          \"brand\": null,\n          \"_embedded\": {\n            \"product_variants\": [\n              {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/product-variants/1669595\"\n                  }\n                }\n              },\n              {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/product-variants/1669602\"\n                  }\n                }\n              }\n            ]\n          },\n          \"_links\": {\n            \"self\": {\n              \"href\": \"http://api.havenly.local/hav-products/6475818\"\n            }\n          }\n        },\n        \"vendor_variants\": [\n          {\n            \"id\": 7724249,\n            \"sku\": \"\",\n            \"title\": \"new variant title\",\n            \"description\": \"test\",\n            \"color\": \"colorful\",\n            \"dimensions\": \"3\",\n            \"material\": \"material goes here\",\n            \"feedSource\": null,\n            \"uri\": \"https://static.havenly.com/product/development/php_58db37989eff9.jpg\",\n            \"shipSurcharge\": \"1.11\",\n            \"inStock\": false,\n            \"backOrdered\": true,\n            \"assemblyRequired\": false,\n            \"flaggedForReview\": false,\n            \"price\": \"100\",\n            \"salePrice\": null,\n            \"saleStartDate\": null,\n            \"saleEndDate\": null,\n            \"wholesalePrice\": null,\n            \"availabilities\": {},\n            \"isSavable\": true,\n            \"isReturnable\": false,\n            \"isHidden\": false,\n            \"discountedPrice\": null,\n            \"etaText\": null,\n            \"promotion\": null,\n            \"shippingPromotion\": null,\n            \"_embedded\": {\n              \"link\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/links/1553635\"\n                  }\n                }\n              },\n              \"product_variant\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/product-variants/1669602\"\n                  }\n                }\n              },\n              \"vendor\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/vendor/812\"\n                  }\n                }\n              },\n              \"taxonomy\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/taxonomies/5922\"\n                  }\n                }\n              },\n              \"attribute_value\": [\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/attribute-values/15201\"\n                    }\n                  }\n                },\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/attribute-values/468813\"\n                    }\n                  }\n                },\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/attribute-values/201297\"\n                    }\n                  }\n                }\n              ],\n              \"product_policy\": [],\n              \"images\": [\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/files/6686644\"\n                    }\n                  }\n                }\n              ],\n              \"subsets\": [\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/product-subsets/5\"\n                    }\n                  }\n                }\n              ],\n              \"creator\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/users/193860\"\n                  }\n                }\n              },\n              \"inventoryType\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/inventory-types/2\"\n                  }\n                }\n              },\n              \"shippingType\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/shipping-types/1\"\n                  }\n                }\n              }\n            },\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/vendor-variants/7724249\"\n              }\n            }\n          },\n          {\n            \"id\": 7724249,\n            \"sku\": \"\",\n            \"title\": \"new variant title\",\n            \"description\": \"test\",\n            \"color\": \"colorful\",\n            \"dimensions\": \"3\",\n            \"material\": \"material goes here\",\n            \"feedSource\": null,\n            \"uri\": \"https://static.havenly.com/product/development/php_58db37989eff9.jpg\",\n            \"shipSurcharge\": \"1.11\",\n            \"inStock\": false,\n            \"backOrdered\": true,\n            \"assemblyRequired\": false,\n            \"flaggedForReview\": false,\n            \"price\": \"100\",\n            \"salePrice\": null,\n            \"saleStartDate\": null,\n            \"saleEndDate\": null,\n            \"wholesalePrice\": null,\n            \"availabilities\": {},\n            \"isSavable\": true,\n            \"isReturnable\": false,\n            \"isHidden\": false,\n            \"discountedPrice\": null,\n            \"etaText\": null,\n            \"promotion\": null,\n            \"shippingPromotion\": null,\n            \"_embedded\": {\n              \"link\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/links/1553635\"\n                  }\n                }\n              },\n              \"product_variant\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/product-variants/1669602\"\n                  }\n                }\n              },\n              \"vendor\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/vendor/812\"\n                  }\n                }\n              },\n              \"taxonomy\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/taxonomies/5922\"\n                  }\n                }\n              },\n              \"attribute_value\": [\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/attribute-values/15201\"\n                    }\n                  }\n                },\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/attribute-values/468813\"\n                    }\n                  }\n                },\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/attribute-values/201297\"\n                    }\n                  }\n                }\n              ],\n              \"product_policy\": [],\n              \"images\": [\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/files/6686644\"\n                    }\n                  }\n                }\n              ],\n              \"subsets\": [\n                {\n                  \"_links\": {\n                    \"self\": {\n                      \"href\": \"http://api.havenly.local/product-subsets/5\"\n                    }\n                  }\n                }\n              ],\n              \"creator\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/users/193860\"\n                  }\n                }\n              },\n              \"inventoryType\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/inventory-types/2\"\n                  }\n                }\n              },\n              \"shippingType\": {\n                \"_links\": {\n                  \"self\": {\n                    \"href\": \"http://api.havenly.local/shipping-types/1\"\n                  }\n                }\n              }\n            },\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/vendor-variants/7724249\"\n              }\n            }\n          }\n        ]\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/product-variants/1669602\"\n        }\n      }\n    },\n    \"vendor\": {\n      \"id\": 812,\n      \"name\": \"1000bulbs.com\",\n      \"url\": \"http://1000bulbs.com\",\n      \"type\": 0,\n      \"priority\": 0,\n      \"tradeDiscount\": false,\n      \"orderMinimum\": \"0.00\",\n      \"catalogType\": false,\n      \"styleId\": 1,\n      \"productTypeId\": 1,\n      \"markup\": \"\",\n      \"useApi\": false,\n      \"preferred\": false,\n      \"anonBuyable\": true,\n      \"apiAbsoluteDomainName\": null,\n      \"apiProtocol\": null,\n      \"notes\": \"\",\n      \"returnPolicyUrl\": \"\",\n      \"returnPolicyDetails\": null,\n      \"shipping\": \"\",\n      \"shippingPolicyUrl\": \"\",\n      \"taxStates\": \"\",\n      \"updated\": {\n        \"date\": \"-0001-11-30 00:00:00.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"affiliateLink\": null,\n      \"commissionThreshold\": null,\n      \"isFeedCategoryRequired\": true,\n      \"created\": {\n        \"date\": \"2016-02-12 21:03:59.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"modified\": {\n        \"date\": \"2016-03-16 16:29:01.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"productVendors\": {},\n      \"vendorVariants\": {},\n      \"productPolicy\": null,\n      \"apiStatus\": null,\n      \"vendorPromotions\": {},\n      \"taxableStates\": {},\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/vendor/812\"\n        }\n      }\n    },\n    \"taxonomy\": {\n      \"id\": 5922,\n      \"title\": \"Artwork\",\n      \"enabled\": true,\n      \"_embedded\": {\n        \"parent\": {\n          \"id\": 5388,\n          \"title\": \"Decor\",\n          \"enabled\": true,\n          \"_embedded\": {\n            \"parent\": {\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/taxonomies/5374\"\n                }\n              }\n            }\n          },\n          \"_links\": {\n            \"self\": {\n              \"href\": \"http://api.havenly.local/taxonomies/5388\"\n            }\n          }\n        }\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/taxonomies/5922\"\n        }\n      }\n    },\n    \"attribute_value\": [\n      {\n        \"id\": 15201,\n        \"value\": \"colorful\",\n        \"created\": null,\n        \"modified\": null,\n        \"_embedded\": {\n          \"attributeType\": {\n            \"id\": 1,\n            \"title\": \"color\",\n            \"created\": null,\n            \"modified\": null,\n            \"attributes\": {},\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/attribute-types/1\"\n              }\n            }\n          }\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/attribute-values/15201\"\n          }\n        }\n      },\n      {\n        \"id\": 468813,\n        \"value\": \"material goes here\",\n        \"created\": {\n          \"date\": \"2017-03-25 20:46:03.000000\",\n          \"timezone_type\": 3,\n          \"timezone\": \"UTC\"\n        },\n        \"modified\": {\n          \"date\": \"2017-03-25 20:46:03.000000\",\n          \"timezone_type\": 3,\n          \"timezone\": \"UTC\"\n        },\n        \"_embedded\": {\n          \"attributeType\": {\n            \"id\": 2,\n            \"title\": \"material\",\n            \"created\": null,\n            \"modified\": null,\n            \"attributes\": {},\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/attribute-types/2\"\n              }\n            }\n          }\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/attribute-values/468813\"\n          }\n        }\n      },\n      {\n        \"id\": 201297,\n        \"value\": \"3\",\n        \"created\": null,\n        \"modified\": null,\n        \"_embedded\": {\n          \"attributeType\": {\n            \"id\": 3,\n            \"title\": \"dimensions\",\n            \"created\": null,\n            \"modified\": null,\n            \"attributes\": {},\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/attribute-types/3\"\n              }\n            }\n          }\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/attribute-values/201297\"\n          }\n        }\n      }\n    ],\n    \"product_policy\": [],\n    \"images\": [\n      {\n        \"id\": 6686644,\n        \"name\": \"php_58db37989eff9.jpg\",\n        \"title\": null,\n        \"size\": 11822,\n        \"mimeType\": \"image/jpeg\",\n        \"md5\": \"c35650c69ed29e850b0a32c4d8f99c93\",\n        \"uri\": \"https://static.havenly.com/product/development/php_58db37989eff9.jpg\",\n        \"user\": null,\n        \"_embedded\": {\n          \"messages\": []\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/files/6686644\"\n          }\n        }\n      }\n    ],\n    \"subsets\": [\n      {\n        \"id\": 5,\n        \"name\": \"Abstract\",\n        \"_embedded\": {\n          \"taxonomies\": [\n            {\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/taxonomies/5922\"\n                }\n              }\n            },\n            {\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/taxonomies/5924\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/product-subsets/5\"\n          }\n        }\n      }\n    ],\n    \"creator\": {\n      \"id\": 193860,\n      \"name\": \"Josh Richard\",\n      \"firstName\": \"Josh\",\n      \"lastName\": \"Richard\",\n      \"avatar\": null,\n      \"email\": \"josh+admin@havenly.com\",\n      \"fbId\": null,\n      \"smoochId\": null,\n      \"preferredDesigner\": null,\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/users/193860\"\n        }\n      }\n    },\n    \"inventoryType\": {\n      \"id\": 2,\n      \"title\": \"Quickship\",\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/inventory-types/2\"\n        }\n      }\n    },\n    \"shippingType\": {\n      \"id\": 1,\n      \"title\": \"Standard\",\n      \"_embedded\": {\n        \"taxonomies\": [\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5375\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5381\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5391\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5432\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5433\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5443\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5500\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5589\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5599\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5604\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5636\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5639\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5714\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5779\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5823\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5923\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/5930\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6056\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6128\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6293\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6342\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6597\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6659\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6671\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6672\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6966\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/6999\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7018\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7049\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7057\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7130\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7131\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7135\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7173\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7215\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7289\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7523\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7524\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7545\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7606\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7607\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7608\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7611\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7652\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7659\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7661\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7670\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7671\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/7911\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8019\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8077\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8131\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8263\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8587\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8640\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8751\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8775\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8804\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8815\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8816\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8842\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/8869\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9242\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9283\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9388\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9432\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9457\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9481\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9600\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9620\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9636\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9638\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9683\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9724\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9738\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9768\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9797\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9799\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9867\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9879\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9881\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/9981\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10130\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10175\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10314\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10331\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10338\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10340\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10454\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10475\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10477\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10479\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10480\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10490\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10491\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10493\"\n              }\n            }\n          },\n          {\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/taxonomies/10761\"\n              }\n            }\n          }\n        ]\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/shipping-types/1\"\n        }\n      }\n    }\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.havenly.local/vendor-variants/7724249\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e928f47-4830-4a99-804c-658ad717be21",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendor-variants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributeFamilies\": [\n    127,\n    87,\n    4,\n    139\n  ],\n  \"color\": \"colorful\",\n  \"description\": \"test\",\n  \"price\": 500,\n  \"dimensions\": \"3\",\n  \"inventoryType\": 2,\n  \"id\": null,\n  \"images\": [\n    \"http://s7d4.scene7.com/is/image/roomandboard/?src=ir{roomandboardrender/braden_cush2sofa_80?obj=main&sharp=1&src=rpt_tudorink&rs=R4U3&obj=material&src=drape_material_eb}&$prodzoom0$&size=498,300&scl=1\"\n  ],\n  \"isBackordered\": 1,\n  \"isInStock\": 0,\n  \"material\": \"material goes here\",\n  \"product\": null,\n  \"retailPrice\": 100,\n  \"saleEndDate\": \"2016-09-23\",\n  \"salePrice\": 2.22,\n  \"saleStartDate\": \"2016-09-02\",\n  \"shipSurcharge\": 1.11,\n  \"shippingType\": 1,\n  \"subSets\": [\n    5\n  ],\n  \"taxonomy\": 5922,\n  \"title\": \"new variant title\",\n  \"vendor\": 812,\n  \"weblink\": \"https: //www.phishtank.com/images/example_phish.gifffffff\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.havenly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9515442f-129d-4d4f-9e3f-60b0a8620a91",
+    "name": "Havenly Addresses Vendor Variants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.\n\nContact Support:\n Email: developers@havenly.com",
+      "type": "text/plain"
+    }
+  }
+}

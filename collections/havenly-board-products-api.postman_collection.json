@@ -1,0 +1,541 @@
+{
+  "item": [
+    {
+      "id": "68c6d85c-37fc-410a-b31a-cd74640baec5",
+      "name": "Board Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "876eff26-4d2d-45c8-b973-f763c207114b",
+          "name": "Create Board Product",
+          "request": {
+            "name": "Create Board Product",
+            "description": {
+              "content": "Route used to add a product to a board.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "board-products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00ef9c49-e6cd-4f4e-b946-419cfa586b4b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recommendedQty\": 5,\n  \"board\": 52087,\n  \"vendorVariant\": 7759999,\n  \"status\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff366ad7-64e0-4da4-bbef-95e650861020",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recommendedQty\": 5,\n  \"board\": 52087,\n  \"vendorVariant\": 7759999,\n  \"status\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb0da463-cbd9-445f-9b91-4fc9ed1b1039",
+          "name": "Get a Specific Board Product by ID",
+          "request": {
+            "name": "Get a Specific Board Product by ID",
+            "description": {
+              "content": "Get a specific board product by board product ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "board-products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4719cd0b-a3c5-41f5-b078-840643759d77",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recommendedQty\": 5,\n  \"board_id\": 29781,\n  \"vendor_variant_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9dbd23e8-5b87-4439-96c7-569062bf220d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recommendedQty\": 5,\n  \"board_id\": 29781,\n  \"vendor_variant_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "537a2857-a884-48fc-be5f-309f77cf1bd9",
+          "name": "Get a Board Product by ID (lite)",
+          "request": {
+            "name": "Get a Board Product by ID (lite)",
+            "description": {
+              "content": "Get a specific board product by board product ID\n\nThis endpoint is a lighter/flatter payload in response. For the full HalJson representation use the main endpoint.\n\nWe built these lighter endpoints to better support the FE team in building faster UIs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "board-products-lite",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3486643e-8589-4ea1-8b00-efc4d06ea6f4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-products-lite",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recommendedQty\": 5,\n  \"board_id\": 29781,\n  \"vendor_variant_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1584482,\n  \"created\": {\n    \"date\": \"2017-05-04 13:56:58.000000\",\n    \"timezone_type\": 3,\n    \"timezone\": \"UTC\"\n  },\n  \"boardId\": 56073,\n  \"designerId\": 11676,\n  \"recommendedQty\": 1,\n  \"subForVendorVariantId\": 8099206,\n  \"boardProductStatusId\": 2,\n  \"_embedded\": {\n    \"vendorVariant\": {\n      \"id\": 6584313,\n      \"sku\": \"108224\",\n      \"title\": \"line work rug 6'x6'\",\n      \"description\": \"power grid.  Inspired by the strict linear geometry of city electrical lines, Molly Fitzpatrick of DittoRepeats designed a pattern to disrupt the order. &quot;I started with a basic grid and broke it by adding tilted lines that bisect the rigid straight ones.&quot; Originally created as a digital file, master rug makers brought the design to life by hand-tufting the pattern on with chunky, twisted wool yarn. The result is an extra thick pile that adds modern warmth and cozy texture to any space.How will it look in your room? 12&quot;x12&quot; rug samples are available in stores for a fee refundable upon return of the sample.   • Designed by Molly Fitzpatrick of DittoRepeats  • Hand-tufted  • 100% New Zealand/Indian wool blend  • All surface rug pad recommended  • Vacuum regularly; professional cleaning recommended  • Made in India \",\n      \"color\": \"Black and cream\",\n      \"dimensions\": \"6' sq.\",\n      \"material\": \"Wool\",\n      \"feedSource\": {\n        \"__initializer__\": {},\n        \"__cloner__\": {},\n        \"__isInitialized__\": false\n      },\n      \"uri\": \"https://static.havenly.com/product/production/php_58f471db6ed82.jpg\",\n      \"shipSurcharge\": \"0.00\",\n      \"inStock\": true,\n      \"backOrdered\": false,\n      \"assemblyRequired\": false,\n      \"flaggedForReview\": true,\n      \"vendorPromotion\": null,\n      \"price\": 349,\n      \"shippingType\": null,\n      \"salePrice\": null,\n      \"saleStartDate\": null,\n      \"saleEndDate\": null,\n      \"wholesalePrice\": null,\n      \"availabilities\": {},\n      \"isSavable\": true,\n      \"isReturnable\": true,\n      \"isHidden\": false,\n      \"discountedPrice\": null,\n      \"etaText\": \"CB2 typically ships in-stock items in 3 to 5 business days.\",\n      \"promotion\": null,\n      \"shippingPromotion\": null,\n      \"attributeFamilies\": [\n        {\n          \"id\": 2,\n          \"name\": \"Geometric\",\n          \"parentId\": 1\n        },\n        {\n          \"id\": 1,\n          \"name\": \"Pattern\",\n          \"parentId\": null\n        },\n        {\n          \"id\": 84,\n          \"name\": \"Wool\",\n          \"parentId\": 68\n        },\n        {\n          \"id\": 68,\n          \"name\": \"Fabric\",\n          \"parentId\": 28\n        },\n        {\n          \"id\": 28,\n          \"name\": \"Material\",\n          \"parentId\": null\n        },\n        {\n          \"id\": 125,\n          \"name\": \"Black\",\n          \"parentId\": 117\n        },\n        {\n          \"id\": 117,\n          \"name\": \"Color\",\n          \"parentId\": null\n        },\n        {\n          \"id\": 127,\n          \"name\": \"Beige\",\n          \"parentId\": 117\n        },\n        {\n          \"id\": 155,\n          \"name\": \"Square\",\n          \"parentId\": 138\n        },\n        {\n          \"id\": 138,\n          \"name\": \"Size/shape\",\n          \"parentId\": null\n        }\n      ],\n      \"linkUri\": \"http://www.cb2.com/line-work-rug-6x6/s108224\",\n      \"taxonomyCategories\": [],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      },\n      \"_embedded\": {\n        \"product_variant\": {\n          \"id\": 584260,\n          \"upc\": null,\n          \"asin\": null,\n          \"_embedded\": {\n            \"hav_product\": {\n              \"id\": 5787489,\n              \"title\": \"line work rug 6'x6'\",\n              \"description\": \"power grid.  Inspired by the strict linear geometry of city electrical lines, Molly Fitzpatrick of DittoRepeats designed a pattern to disrupt the order. \\\"I started with a basic grid and broke it by adding tilted lines that bisect the rigid straight ones.\\\"\",\n              \"brand\": null,\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/hav-products/5787489\"\n                }\n              }\n            }\n          },\n          \"_links\": {\n            \"self\": {\n              \"href\": \"http://api.havenly.local/product-variants/584260\"\n            }\n          }\n        },\n        \"vendor\": {\n          \"id\": 4,\n          \"name\": \"CB2\",\n          \"isWholeSale\": false,\n          \"affiliateLink\": null,\n          \"_links\": {\n            \"self\": {\n              \"href\": \"http://api.havenly.local/vendor/4\"\n            }\n          }\n        },\n        \"taxonomy\": {\n          \"id\": 5374,\n          \"title\": \"Home & Garden\",\n          \"parentId\": null,\n          \"ancestors\": [],\n          \"_links\": {\n            \"self\": {\n              \"href\": \"http://api.havenly.local/taxonomies/5374\"\n            }\n          }\n        },\n        \"images\": [\n          {\n            \"id\": 7709932,\n            \"name\": \"php_58f471db6ed82.jpg\",\n            \"title\": null,\n            \"size\": 222802,\n            \"mimeType\": \"image/jpeg\",\n            \"md5\": \"d4afedf6b24c1eb32c1dce51ca7067fa\",\n            \"uri\": \"https://static.havenly.com/product/production/php_58f471db6ed82.jpg\",\n            \"user\": null,\n            \"_embedded\": {\n              \"messages\": []\n            },\n            \"_links\": {\n              \"self\": {\n                \"href\": \"http://api.havenly.local/files/7709932\"\n              }\n            }\n          }\n        ],\n        \"subsets\": [],\n        \"inventoryType\": {\n          \"id\": 3,\n          \"title\": \"Regular\",\n          \"_links\": {\n            \"self\": {\n              \"href\": \"http://api.havenly.local/inventory-types/3\"\n            }\n          }\n        }\n      },\n      \"_links\": {\n        \"self\": {\n          \"href\": \"http://api.havenly.local/vendor-variants-lite/6584313\"\n        }\n      }\n    }\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.havenly.local/board-products-lite/1584482\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf40ee9c-6664-4ee2-8c63-99afdca11562",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-products-lite",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recommendedQty\": 5,\n  \"board_id\": 29781,\n  \"vendor_variant_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.havenly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cb0f5dff-26e3-4196-b034-c72258a01011",
+    "name": "Havenly Addresses Board Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.\n\nContact Support:\n Email: developers@havenly.com",
+      "type": "text/plain"
+    }
+  }
+}

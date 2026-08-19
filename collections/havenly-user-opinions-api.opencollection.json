@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Havenly Addresses User Opinions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Opinions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new opinion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.havenly.com/user-opinions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Each POST is considered a new opinion. Therefore, we remove all other opinions for that user to create this new one.\n\n\nOpinions:\n\n1 -&gt; Like\n0 -&gt; No Opinion\n-1 -&gt; Dislike"
+        },
+        {
+          "info": {
+            "name": "Fetch all customer likes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.havenly.com/user-likes-lite",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This is another way of fetching a user's likes.\n\nThis is a doctrine connected endpoint on the existing entities. While this works now, integrating with it may not be a long term solution as the user likes system may change in the near future.\nHowever, in the meantime, this does allow you to fetch user likes with all of the doctrine filters as needed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

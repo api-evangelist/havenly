@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Havenly Addresses Users API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.havenly.com/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new user.\nThis route has a pre-request script for Postman such that an email and password will be generated for you and saved to your environment\nThis route does not require Authentication, however, in order to create a user that has a designer/admin role you must authenticate as an admin first and use this route authenticated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

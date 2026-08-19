@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Havenly Addresses Authentication API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "External OAuth Authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.havenly.com/oauth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This route is used to authenticate against the Havenly API as an Airbnb user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Havenly Addresses User Profile API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Profile (deprecated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.havenly.com/user-profile",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Used to retrieve user information about the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "User Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.havenly.com/user-profiles",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Used to retrieve user information about the currently authenticated user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

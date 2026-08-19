@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "4a9ad915-642c-4fd2-a5ff-b23a8c666c63",
+      "name": "Searched Vendor Variants",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aa12a3f0-8b55-4131-9d15-4f4eee7bce01",
+          "name": "Get User Specific Data",
+          "request": {
+            "name": "Get User Specific Data",
+            "description": {
+              "content": "Given the list of vendor variant IDs, return user specific data regarding those variants.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "searched-vendor-variants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e3c3496-05c2-4676-bd31-47e1318a2621",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "searched-vendor-variants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorVariants\": [\n    8104621,\n    8104622,\n    8104623,\n    8104624,\n    8104625,\n    8104626,\n    8104627\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vendorVariants\": [\n    {\n      \"vendorVariantId\": 8104621,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    },\n    {\n      \"vendorVariantId\": 8104622,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [\n        {\n          \"isTextOnly\": true,\n          \"text\": \"Free Shipping & White Glove Delivery\",\n          \"terms\": null\n        }\n      ],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    },\n    {\n      \"vendorVariantId\": 8104623,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [\n        {\n          \"isTextOnly\": false,\n          \"text\": \"Free Shipping\",\n          \"terms\": \"Offer includes all fine art prints and non-custom art, excluding all custom art prints. Available on standard shipping within the US. This promotion may not be combined with any other offer. Returns can be placed by contacting customer service.\"\n        }\n      ],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    },\n    {\n      \"vendorVariantId\": 8104624,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [\n        {\n          \"isTextOnly\": true,\n          \"text\": \"Free Shipping $35+\",\n          \"terms\": null\n        }\n      ],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    },\n    {\n      \"vendorVariantId\": 8104625,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [\n        {\n          \"isTextOnly\": true,\n          \"text\": \"Free Shipping $35+\",\n          \"terms\": null\n        }\n      ],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    },\n    {\n      \"vendorVariantId\": 8104626,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [\n        {\n          \"isTextOnly\": true,\n          \"text\": \"Free Shipping $35+\",\n          \"terms\": null\n        }\n      ],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    },\n    {\n      \"vendorVariantId\": 8104627,\n      \"discountedPrice\": null,\n      \"vendorPromotions\": [],\n      \"shippingPromotions\": [\n        {\n          \"isTextOnly\": true,\n          \"text\": \"Free Shipping $35+\",\n          \"terms\": null\n        }\n      ],\n      \"userData\": {\n        \"cart\": {\n          \"id\": null,\n          \"cartProductId\": null,\n          \"quantity\": 0\n        },\n        \"registry\": {\n          \"id\": null,\n          \"registryProductId\": null,\n          \"quantity\": 0\n        },\n        \"userOpinion\": 0,\n        \"isPurchased\": false,\n        \"activeRooms\": []\n      }\n    }\n  ],\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://api-pr2324.havenly.com/searched-vendor-variants\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67831734-3c5a-4999-ae70-1e958af5d26b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "searched-vendor-variants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendorVariants\": [\n    8104621,\n    8104622,\n    8104623,\n    8104624,\n    8104625,\n    8104626,\n    8104627\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.havenly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f57230b2-40c6-4bb7-96ec-74d456944a3a",
+    "name": "Havenly Addresses Searched Vendor Variants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.\n\nContact Support:\n Email: developers@havenly.com",
+      "type": "text/plain"
+    }
+  }
+}

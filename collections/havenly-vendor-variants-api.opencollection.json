@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Havenly Addresses Vendor Variants API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vendor Variants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch vendor variants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.havenly.com/vendor-variants",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a collection of vendor variants"
+        },
+        {
+          "info": {
+            "name": "Create a new vendor variant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.havenly.com/vendor-variants",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "There are many values that can be passed to create a vendor variant. This is a sample of what the payload could look like. For a full list of available fields, look at the response sample."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

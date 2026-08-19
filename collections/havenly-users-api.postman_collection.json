@@ -1,0 +1,238 @@
+{
+  "item": [
+    {
+      "id": "e569a50a-8f27-4916-98b1-4a4043e9b82a",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "729cea11-b7a7-4f1f-ae66-0c336bde1c54",
+          "name": "Create a user",
+          "request": {
+            "name": "Create a user",
+            "description": {
+              "content": "Create a new user.\nThis route has a pre-request script for Postman such that an email and password will be generated for you and saved to your environment\nThis route does not require Authentication, however, in order to create a user that has a designer/admin role you must authenticate as an admin first and use this route authenticated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21227b4c-8468-42aa-92d0-5b9e7abc6e9d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"{{username}}\",\n  \"name\": \"Postman User\",\n  \"password\": \"{{password}}\",\n  \"source\": \"postman\",\n  \"role\": \"customer\",\n  \"firstName\": \"Postman\",\n  \"lastName\": \"User\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 371461,\n  \"name\": \"Postman User\",\n  \"firstName\": \"Postman\",\n  \"lastName\": \"User\",\n  \"avatar\": null,\n  \"email\": \"1598-postman@havenly.com\",\n  \"fbId\": null,\n  \"smoochId\": null,\n  \"preferredDesigner\": null,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.havenly.local/users/371461\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ad1aa73-690e-431b-926e-75a1c087e5e9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"{{username}}\",\n  \"name\": \"Postman User\",\n  \"password\": \"{{password}}\",\n  \"source\": \"postman\",\n  \"role\": \"customer\",\n  \"firstName\": \"Postman\",\n  \"lastName\": \"User\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2751094c-f982-405f-be3c-4b8d15a91dbf",
+              "name": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"{{username}}\",\n  \"name\": \"Postman User\",\n  \"password\": \"{{password}}\",\n  \"source\": \"postman\",\n  \"role\": \"customer\",\n  \"firstName\": \"Postman\",\n  \"lastName\": \"User\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"validation_messages\": {\n    \"name\": {\n      \"isEmpty\": \"Value is required and can't be empty\"\n    },\n    \"firstName\": {\n      \"isEmpty\": \"Value is required and can't be empty\"\n    },\n    \"lastName\": {\n      \"isEmpty\": \"Value is required and can't be empty\"\n    },\n    \"source\": {\n      \"isEmpty\": \"Value is required and can't be empty\"\n    }\n  },\n  \"type\": \"http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html\",\n  \"title\": \"Unprocessable Entity\",\n  \"status\": 422,\n  \"detail\": \"Failed Validation\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.havenly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cf4bdb13-23cc-440a-b04e-58cec407daaf",
+    "name": "Havenly Addresses Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.\n\nContact Support:\n Email: developers@havenly.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "item": [
+    {
+      "id": "a17bc318-97ac-4ade-9bd6-0ab9a151060a",
+      "name": "Board Feedback Questions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7fe99b11-2f55-4cb9-bc98-4030d2d5516e",
+          "name": "Board Feedback Questions (collection)",
+          "request": {
+            "name": "Board Feedback Questions (collection)",
+            "description": {
+              "content": "Get all board feedback questions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "board-feedback-questions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "952f32c0-b4db-48be-82a3-06e90f842ea3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-feedback-questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 20,\n  \"total\": 20,\n  \"collectionTotal\": 20,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.havenly.local/board-feedback-questions?page=1\"\n    },\n    \"first\": {\n      \"href\": \"http://api.havenly.local/board-feedback-questions\"\n    },\n    \"last\": {\n      \"href\": \"http://api.havenly.local/board-feedback-questions?page=1\"\n    }\n  },\n  \"_embedded\": {\n    \"board_feedback_questions\": [\n      {\n        \"id\": 1,\n        \"title\": \"Low quality items\",\n        \"question\": \"Which items appear to be low quality?\",\n        \"placeholder\": \"For example: \\\"Some of these pieces look cheap to me. The rug looks like it won't last - too thin.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/1\"\n          }\n        }\n      },\n      {\n        \"id\": 2,\n        \"title\": \"Don't love the colors\",\n        \"question\": \"How can we improve the color scheme?\",\n        \"placeholder\": \"For example: \\\"This is way too dark and gray. I want neutrals but I want brighter and lighter neutrals like whites.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/2\"\n          }\n        }\n      },\n      {\n        \"id\": 3,\n        \"title\": \"Not my style\",\n        \"question\": \"How can we get closer to your style?\",\n        \"placeholder\": \"For example: \\\"This is way too bohemian and eclectic for me. I want it to be modern with a few fun, eclectic accents.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/3\"\n          }\n        }\n      },\n      {\n        \"id\": 4,\n        \"title\": \"Underwhelming\",\n        \"question\": \"What feels underwhelming to you?\",\n        \"placeholder\": \"For example: \\\"The sofa and pillows do not excite me. They feels way too safe and plain. I want them to make a statement.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/4\"\n          }\n        }\n      },\n      {\n        \"id\": 5,\n        \"title\": \"Core pieces are missing\",\n        \"question\": \"Which pieces are missing from this design?\",\n        \"placeholder\": \"For example: \\\"I mentioned I need curtains. I don't see those in the design.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/5\"\n          }\n        }\n      },\n      {\n        \"id\": 6,\n        \"title\": \"Out of my price range\",\n        \"question\": \"What's out of your price range?\",\n        \"placeholder\": \"For example: \\\"I would never pay that much for a lamp. Please show me less expensive options.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/6\"\n          }\n        }\n      },\n      {\n        \"id\": 7,\n        \"title\": \"The vibe is off\",\n        \"question\": \"How can we improve the vibe?\",\n        \"placeholder\": \"For example: \\\"This feels too casual. I want a room that is more tailored and sophisticated.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/7\"\n          }\n        }\n      },\n      {\n        \"id\": 8,\n        \"title\": \"Not practical for my lifestyle\",\n        \"question\": \"How can we better design for your lifestyle?\",\n        \"placeholder\": \"For example: \\\"I have a dog and 2 kids. That gets messy! A white sofa is not functional for my lifestyle.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/8\"\n          }\n        }\n      },\n      {\n        \"id\": 9,\n        \"title\": \"Scale is off\",\n        \"question\": \"Which items look out of scale?\",\n        \"placeholder\": \"For example: \\\"My room is tiny, so this will not work in my space. There is no way that table will fit in the corner.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/9\"\n          }\n        }\n      },\n      {\n        \"id\": 10,\n        \"title\": \"Don't love the layout\",\n        \"question\": \"What layout is ideal for you?\",\n        \"placeholder\": \"For example: \\\"I prefer my bed by the window. I've tried this layout and it doesn't work.\\\"\",\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/10\"\n          }\n        }\n      },\n      {\n        \"id\": 11,\n        \"title\": \"Love the colors\",\n        \"question\": null,\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/11\"\n          }\n        }\n      },\n      {\n        \"id\": 12,\n        \"title\": \"Good quality\",\n        \"question\": null,\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/12\"\n          }\n        }\n      },\n      {\n        \"id\": 13,\n        \"title\": \"The vibe is right\",\n        \"question\": null,\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/13\"\n          }\n        }\n      },\n      {\n        \"id\": 14,\n        \"title\": \"Matches my style\",\n        \"question\": null,\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/14\"\n          }\n        }\n      },\n      {\n        \"id\": 15,\n        \"title\": \"Price is on point\",\n        \"question\": null,\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/15\"\n          }\n        }\n      },\n      {\n        \"id\": 16,\n        \"title\": \"Layout looks right\",\n        \"question\": null,\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/16\"\n          }\n        }\n      },\n      {\n        \"id\": 17,\n        \"title\": null,\n        \"question\": \"How else can we improve this concept?\",\n        \"placeholder\": null,\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/17\"\n          }\n        }\n      },\n      {\n        \"id\": 18,\n        \"title\": null,\n        \"question\": \"How else can we improve this concept to make it perfect?\",\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 1,\n              \"name\": \"Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/1\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/18\"\n          }\n        }\n      },\n      {\n        \"id\": 19,\n        \"title\": null,\n        \"question\": \"How else can we improve your layout?\",\n        \"placeholder\": null,\n        \"isPositive\": false,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/19\"\n          }\n        }\n      },\n      {\n        \"id\": 20,\n        \"title\": null,\n        \"question\": \"Need any additional product recommendations or design help?\",\n        \"placeholder\": null,\n        \"isPositive\": true,\n        \"created\": null,\n        \"modified\": null,\n        \"type\": null,\n        \"_embedded\": {\n          \"boardTypes\": [\n            {\n              \"id\": 15,\n              \"name\": \"Final Concept\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/15\"\n                }\n              }\n            },\n            {\n              \"id\": 3,\n              \"name\": \"Final Design\",\n              \"_links\": {\n                \"self\": {\n                  \"href\": \"http://api.havenly.local/board-types/3\"\n                }\n              }\n            }\n          ]\n        },\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-feedback-questions/20\"\n          }\n        }\n      }\n    ]\n  },\n  \"page_count\": 1,\n  \"page_size\": 25,\n  \"total_items\": 20,\n  \"page\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0738a74-fc15-4c34-b717-4ef4a9ae22b8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-feedback-questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa8395b6-1b43-4566-ad25-83f9fe909194",
+          "name": "Board Feedback Question by ID",
+          "request": {
+            "name": "Board Feedback Question by ID",
+            "description": {
+              "content": "Get a specific board feedback question by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "board-feedback-questions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71551c49-d562-4313-8c88-f727d3511c1a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-feedback-questions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5,\n  \"title\": \"Core pieces are missing\",\n  \"question\": \"Which pieces are missing from this design?\",\n  \"placeholder\": \"For example: \\\"I mentioned I need curtains. I don't see those in the design.\\\"\",\n  \"isPositive\": false,\n  \"created\": null,\n  \"modified\": null,\n  \"type\": null,\n  \"_embedded\": {\n    \"boardTypes\": [\n      {\n        \"id\": 15,\n        \"name\": \"Final Concept\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-types/15\"\n          }\n        }\n      },\n      {\n        \"id\": 3,\n        \"name\": \"Final Design\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-types/3\"\n          }\n        }\n      },\n      {\n        \"id\": 1,\n        \"name\": \"Concept\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"http://api.havenly.local/board-types/1\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"http://api.havenly.local/board-feedback-questions/5\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "525ea7c9-c77a-49a7-8bce-f80ffcbe1d25",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "board-feedback-questions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.havenly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "372d48e9-55b9-41de-8cc7-c261627c56d9",
+    "name": "Havenly Addresses Board Feedback Questions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Havenly REST API powering the interior-design platform: users and profiles, addresses, design boards and board products, vendor product variants (catalog), attribute types, board feedback, and user opinions/likes. Responses use HAL+JSON (_links/_embedded) with page/limit pagination and zf-doctrine-querybuilder query filters. Authentication is OAuth2 (password grant) returning a Bearer token; payment testing in non-production uses Stripe test cards. Derived from Havenly public Postman API documentation at https://api-docs.havenly.com.\n\nContact Support:\n Email: developers@havenly.com",
+      "type": "text/plain"
+    }
+  }
+}
