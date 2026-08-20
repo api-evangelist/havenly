@@ -44,6 +44,16 @@ tags:
 - Marketplace
 - Design
 - Retail
+- Artificial Intelligence
+tags_raw:
+- Company
+- Interior Design
+- Home Decor
+- Furniture
+- E-Commerce
+- Marketplace
+- Design
+- Retail
 - AI
 apis:
 - aid: havenly:havenly-addresses-api
@@ -252,6 +262,8 @@ apis:
   humanURL: https://api-docs.havenly.com/
   baseURL: https://api.havenly.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
