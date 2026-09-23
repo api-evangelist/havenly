@@ -1,17 +1,7 @@
 {
   "provider": "havenly",
   "sources": [
-    "havenly-addresses-api-openapi.yml",
-    "havenly-attribute-types-api-openapi.yml",
-    "havenly-authentication-api-openapi.yml",
-    "havenly-board-feedback-api-openapi.yml",
-    "havenly-board-feedback-questions-api-openapi.yml",
-    "havenly-board-products-api-openapi.yml",
-    "havenly-searched-vendor-variants-api-openapi.yml",
-    "havenly-user-opinions-api-openapi.yml",
-    "havenly-user-profile-api-openapi.yml",
-    "havenly-users-api-openapi.yml",
-    "havenly-vendor-variants-api-openapi.yml"
+    "_original/havenly-openapi.yml"
   ],
   "outputs": [
     "havenly-addresses-api-openapi.yml",
@@ -29,6 +19,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "havenly-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "havenly-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-attribute-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-board-feedback-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-board-feedback-questions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-board-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-searched-vendor-variants-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-user-opinions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-user-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "havenly-vendor-variants-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
