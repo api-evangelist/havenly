@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/havenly/integrations
+- https://n8n.io/integrations/havenly/
+- https://composio.dev/toolkits/havenly
+- https://monid.ai/tools/havenly
+checked:
+- https://composio.dev/toolkits/havenly
+- https://monid.ai/tools/havenly
+- https://n8n.io/integrations/havenly/
+- https://zapier.com/apps/havenly/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
