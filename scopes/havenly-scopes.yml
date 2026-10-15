@@ -1,10 +1,66 @@
-generated: '2026-07-19'
-method: derived
-source: openapi/havenly-openapi.yml
+generated: '2026-10-14'
+method: none
+source: openapi/havenly-addresses-api-openapi.yml, openapi/havenly-attribute-types-api-openapi.yml,
+  openapi/havenly-authentication-api-openapi.yml, openapi/havenly-board-feedback-api-openapi.yml,
+  openapi/havenly-board-feedback-questions-api-openapi.yml, openapi/havenly-board-products-api-openapi.yml,
+  openapi/havenly-searched-vendor-variants-api-openapi.yml, openapi/havenly-user-opinions-api-openapi.yml,
+  openapi/havenly-user-profile-api-openapi.yml, openapi/havenly-users-api-openapi.yml, openapi/havenly-vendor-variants-api-openapi.yml
 schemes:
 - name: oauth2
-  source: openapi/havenly-openapi.yml
+  source: openapi/havenly-addresses-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-attribute-types-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-authentication-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-board-feedback-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-board-feedback-questions-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-board-products-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-searched-vendor-variants-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-user-opinions-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-user-profile-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-users-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: https://api.havenly.com/oauth
+- name: oauth2
+  source: openapi/havenly-vendor-variants-api-openapi.yml
   flows:
   - flow: password
     tokenUrl: https://api.havenly.com/oauth
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
