@@ -64,6 +64,137 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Havenly is a company surfaced as a portfolio company of 500-global, foundry-group and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Havenly is an online interior-design platform that connects clients with professional designers for virtual and in-person home-decorating services. Clients take a style quiz, match with a designer, collaborate on 3D room renderings, and shop curated furniture and decor from partner brands at exclusive prices. Havenly also offers AI-assisted design. The company exposes a REST API (documented publicly via Postman at api-docs.havenly.com) covering users and profiles, addresses, design boards and board products, a vendor product catalog (vendor variants), attribute types, board feedback, and user opinions/likes. Authentication is OAuth2 (password grant) returning a Bearer token; HAL+JSON responses use page/limit pagination and zf-doctrine-querybuilder query filters. Havenly is backed by 500 Global and Foundry Group.
 
-Backed by: 500-global, foundry-group — https://havenly.com
+**Areas:** Company · Interior Design · Home Decor · Furniture · E-Commerce · Marketplace · Design · Retail · Artificial Intelligence
+
+## Havenly on APIs.io
+
+Everything profiled for Havenly is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/havenly/](https://apis.io/providers/havenly/)** — or go straight to one of the APIs or properties below.
+
+### APIs (11)
+
+- [Havenly Addresses API](https://apis.io/apis/havenly/havenly-addresses-api/) — The Addresses API from Havenly — 1 operation(s) for addresses.
+- [Havenly Attribute Types API](https://apis.io/apis/havenly/havenly-attribute-types-api/) — The Attribute Types API from Havenly — 1 operation(s) for attribute types.
+- [Havenly Authentication API](https://apis.io/apis/havenly/havenly-authentication-api/) — The Authentication API from Havenly — 1 operation(s) for authentication.
+- [Havenly Board Feedback API](https://apis.io/apis/havenly/havenly-board-feedback-api/) — The Board Feedback API from Havenly — 2 operation(s) for board feedback.
+- [Havenly Board Feedback Questions API](https://apis.io/apis/havenly/havenly-board-feedback-questions-api/) — The Board Feedback Questions API from Havenly — 2 operation(s) for board feedback questions.
+- [Havenly Board Products API](https://apis.io/apis/havenly/havenly-board-products-api/) — The Board Products API from Havenly — 3 operation(s) for board products.
+- [Havenly Searched Vendor Variants API](https://apis.io/apis/havenly/havenly-searched-vendor-variants-api/) — The Searched Vendor Variants API from Havenly — 1 operation(s) for searched vendor variants.
+- [Havenly User Opinions API](https://apis.io/apis/havenly/havenly-user-opinions-api/) — The User Opinions API from Havenly — 2 operation(s) for user opinions.
+- [Havenly User Profile API](https://apis.io/apis/havenly/havenly-user-profile-api/) — The User Profile API from Havenly — 2 operation(s) for user profile.
+- [Havenly Users API](https://apis.io/apis/havenly/havenly-users-api/) — The Users API from Havenly — 1 operation(s) for users.
+- [Havenly Vendor Variants API](https://apis.io/apis/havenly/havenly-vendor-variants-api/) — The Vendor Variants API from Havenly — 1 operation(s) for vendor variants.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [havenly](https://apis.io/servers/havenly/havenly/)
+
+#### Collections (12)
+
+Postman and Open Collection request collections.
+
+- [Havenly Addresses API](https://apis.io/collections/havenly/open-havenly-addresses-api/)
+- [Havenly Addresses Attribute Types API](https://apis.io/collections/havenly/open-havenly-attribute-types-api/)
+- [Havenly Addresses Authentication API](https://apis.io/collections/havenly/open-havenly-authentication-api/)
+- [Havenly Addresses Board Feedback API](https://apis.io/collections/havenly/open-havenly-board-feedback-api/)
+- [Havenly Addresses Board Feedback Questions API](https://apis.io/collections/havenly/open-havenly-board-feedback-questions-api/)
+- [Havenly Addresses Board Products API](https://apis.io/collections/havenly/open-havenly-board-products-api/)
+- [Havenly Addresses Searched Vendor Variants API](https://apis.io/collections/havenly/open-havenly-searched-vendor-variants-api/)
+- [Havenly Addresses User Opinions API](https://apis.io/collections/havenly/open-havenly-user-opinions-api/)
+- [Havenly Addresses User Profile API](https://apis.io/collections/havenly/open-havenly-user-profile-api/)
+- [Havenly Addresses Users API](https://apis.io/collections/havenly/open-havenly-users-api/)
+- [Havenly Addresses Vendor Variants API](https://apis.io/collections/havenly/open-havenly-vendor-variants-api/)
+- [Havenly API](https://apis.io/collections/havenly/postman-havenly-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Havenly Openapi Overlay](https://apis.io/overlays/havenly/havenly-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Havenly Authentication](https://apis.io/security/havenly/havenly-authentication/)
+- [Havenly Domain Security](https://apis.io/security/havenly/havenly-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Havenly Scopes](https://apis.io/scopes/havenly/havenly-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://havenly.com)
+- [Documentation](https://api-docs.havenly.com/)
+- [API reference](https://api-docs.havenly.com/)
+- [Pricing](https://havenly.com/pricing)
+- [Sign up](https://havenly.com/interior-design-style-quiz/style-inspiration)
+- [Support](https://havenly.kustomer.help)
+- [Blog](https://havenly.com/blog)
+- [Terms of service](https://havenly.com/terms)
+- [Privacy policy](https://havenly.com/privacy)
+
+## API Evangelist rating
+
+**Kin Score 36.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 47.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 38.7 |
+| Access clarity | 44.7 |
+
+**Agent readiness 22.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/havenly/](https://apis.io/providers/havenly/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Havenly: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/havenly/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
